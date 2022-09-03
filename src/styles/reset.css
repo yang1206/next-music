@@ -1,0 +1,251 @@
+/* 样式的重置 */
+
+body,
+html,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+ul,
+ol,
+li,
+dl,
+dt,
+dd,
+header,
+menu,
+section,
+p,
+input,
+td,
+th,
+ins {
+  padding: 0;
+  margin: 0;
+}
+
+ul,
+ol,
+li {
+  list-style: none;
+}
+
+a {
+  color: #666666;
+  text-decoration: none;
+}
+
+a:hover {
+  color: #666666;
+  text-decoration: underline;
+}
+
+i,
+em {
+  font-style: normal;
+}
+
+input,
+textarea,
+button,
+select,
+a {
+  border: none;
+  outline: none;
+}
+
+table {
+  border-spacing: 0;
+  border-collapse: collapse;
+}
+
+img {
+  vertical-align: middle;
+  border: none;
+}
+
+/* 全局样式 */
+
+html,
+body {
+  word-break: break-word;
+  word-wrap: break-word;
+}
+
+body,
+textarea,
+select,
+input,
+button {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 12px;
+  color: #333333;
+  background-color: #f5f5f5;
+}
+
+.text-nowrap {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.wrap-v1 {
+  width: 100%;
+  margin: 0 auto;
+}
+
+.wrap-v2 {
+  width: 980px;
+  margin: 0 auto;
+}
+
+.sprite_01 {
+  background: url('../../public//img//sprite_01.png') no-repeat 0 9999px;
+}
+
+.sprite_02 {
+  background: url('../../public/img/sprite_02.png') no-repeat 0 9999px;
+}
+
+.sprite_cover {
+  background: url('../../public/img/sprite_cover.png') no-repeat 0 9999px;
+}
+
+.sprite_icon {
+  background: url('../../public/img/sprite_icon.png') no-repeat 0 9999px;
+}
+
+.sprite_icon2 {
+  background: url('../../public/img/sprite_icon2.png') no-repeat 0 9999px;
+}
+
+
+.sprite_button {
+  background: url('../../public/img/sprite_button.png') no-repeat 0 9999px;
+}
+
+.sprite_button2 {
+  background: url('../../public/img/sprite_button2.png') no-repeat 0 9999px;
+}
+
+.sprite_table {
+  background: url('../../public/img/sprite_table.png') no-repeat 0 9999px;
+}
+
+.sprite_playBar {
+  background: url('../../public/img/playbar_sprite.png') no-repeat 0 9999px;
+}
+
+
+.sprite_player {
+  background: url('../../public/img/playbar_sprite.png') no-repeat 0 9999px;
+}
+
+.image_cover {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  text-indent: -9999px;
+  background: url('../../public/img/sprite_cover.png') no-repeat -145px -57px;
+}
+
+.my_music {
+  background: url('../../public/img/mymusic.png') no-repeat 0 9999px;
+}
+
+.not-login {
+  background: url('../../public/img/notlogin.jpg') no-repeat 0 9999px;
+}
+
+/* .cover_all {
+  background: url(../img/sprite_cover.png) no-repeat  0 9999px;
+  
+} */
+
+.lyric-css .ant-message-notice-content {
+  position: fixed;
+  bottom: 50px;
+  left: 50%;
+  color: #f5f5f5;
+  background-color: rgb(0 0 0 / 50%);
+  transform: translateX(-50%);
+}
+
+.wrap-bg2 {
+  background: url('../../public/img/wrap3.png') repeat-y center 0;
+}
+
+.no-link {
+  pointer-events: none;
+}
+
+.m-tab {
+  background: url('../../public/img/tab.png') no-repeat 0 9999px;
+}
+
+.theme-logo {
+  background: url('../../public/img/logo.png') repeat 0 9999px;
+
+  /* background: url(../img/music.svg) repeat 0 9999px;; */
+}
+
+.new-logo {
+  background: url('../../public/img/music.svg') no-repeat;
+  background-size: contain;
+}
+
+.date {
+  background: url('../../public/img/date.png') no-repeat 0 9999px;
+}
+
+/* .mask{
+  background:url(../img/date2_mask.png) no-repeat 0 9999px;
+} */
+
+.icons {
+  background: url('../../public/img/icon.png') no-repeat 0 9999px;
+}
+
+.artist {
+  background: url('../../public/img/singer_sprite.png') no-repeat 0 9999px;
+}
+
+main.content {
+  width: 980px;
+  min-height: 700px;
+  margin: 0 auto;
+  background-color: #ffffff;
+  border: 1px solid #d3d3d3;
+  border-width: 0 1px;
+}
+
+.icon-small {
+  background: url('../../public/img/icon2.png') no-repeat 0 9999px;
+}
+
+.ant-message .ant-message-notice-content {
+  position: fixed;
+  bottom: 60px;
+  left: 50%;
+  color: #ffffff;
+  background-color: rgb(0 0 0 / 50%);
+  transform: translateX(-50%);
+}
+
+span:hover.link {
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.flex {
+  display: flex;
+}
+
+.pointer {
+  cursor: pointer;
+}
+
