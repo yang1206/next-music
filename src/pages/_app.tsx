@@ -1,14 +1,18 @@
-import '../styles/globals.css'
-
+import React, { FC } from 'react'
+import { AppProps } from 'next/app'
+import store from '../store'
 import { Provider } from 'react-redux'
-import type { AppProps } from 'next/app'
+import Layout from '@/layouts'
 
-import store from '../app/store'
-
-export default function MyApp({ Component, pageProps }: AppProps) {
-  return (
-    <Provider store={store}>
+import 'antd/dist/antd.css'
+import '../styles/reset.css'
+import 'normalize.css/normalize.css'
+const App: FC<AppProps> = ({ Component, pageProps }) => (
+  <Provider store={store}>
+    <Layout>
       <Component {...pageProps} />
-    </Provider>
-  )
-}
+    </Layout>
+  </Provider>
+)
+
+export default App
