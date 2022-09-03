@@ -2,7 +2,7 @@ import request from '@/service'
 import { SongList } from './interface'
 export const getSongListDetail = (data: SongList.SongListDetail) => {
   return request({
-    url: '/playlist/detail',
+    url: '/api/playlist/detail',
     method: 'GET',
     data
   })
@@ -11,7 +11,7 @@ export const getSongListDetail = (data: SongList.SongListDetail) => {
 //TODO上面的歌单接口只能获取十首，这个接口登陆后可以获取全部接口
 export const getSongListAll = (data: SongList.SongListDetail) => {
   return request({
-    url: '/playlist/track/all',
+    url: '/api/playlist/track/all',
     method: 'GET',
     data
   })
@@ -19,14 +19,14 @@ export const getSongListAll = (data: SongList.SongListDetail) => {
 
 export function getSongCategory() {
   return request({
-    url: '/playlist/catlist',
+    url: '/api/playlist/catlist',
     method: 'GET'
   })
 }
 
 export function getSongCategoryList(cat = '全部', offset = 0, limit = 35) {
   return request({
-    url: '/top/playlist',
+    url: '/api/top/playlist',
     method: 'GET',
     data: {
       cat,

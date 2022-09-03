@@ -2,7 +2,7 @@ import request from '@/service'
 //歌手详细信息
 export const getArtists = (id: number | string) => {
   return request({
-    url: '/artists',
+    url: '/api/artists',
     method: 'GET',
     data: {
       id
@@ -13,7 +13,7 @@ export const getArtists = (id: number | string) => {
 //歌手介绍
 export const getArtistsDesc = (id: number | string) => {
   return request({
-    url: '/artist/desc',
+    url: '/api/artist/desc',
     method: 'GET',
     data: {
       id
@@ -24,7 +24,7 @@ export const getArtistsDesc = (id: number | string) => {
 //歌手专辑
 export const getArtistsAlbum = (id: number | string) => {
   return request({
-    url: '/artist/album',
+    url: '/api/artist/album',
     method: 'GET',
     data: {
       id
@@ -57,7 +57,7 @@ export const getArtistsList = (
   limit = 16
 ) => {
   return request({
-    url: '/artist/list',
+    url: '/api/artist/list',
     method: 'GET',
     data: {
       type,
