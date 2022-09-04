@@ -46,6 +46,7 @@ specifiers:
   react-dom: ^18.1.0
   react-redux: ^7.2.0
   react-transition-group: ^4.4.5
+  redux-persist: ^6.0.0
   styled-components: ^5.3.5
   stylelint: ^14.9.1
   stylelint-config-prettier: ^9.0.3
@@ -72,6 +73,7 @@ dependencies:
   react-dom: registry.npmmirror.com/react-dom/18.2.0_react@18.2.0
   react-redux: registry.npmmirror.com/react-redux/7.2.8_biqbaboplfbrettd7655fr4n2y
   react-transition-group: registry.npmmirror.com/react-transition-group/4.4.5_biqbaboplfbrettd7655fr4n2y
+  redux-persist: registry.npmmirror.com/redux-persist/6.0.0_react@18.2.0
   styled-components: registry.npmmirror.com/styled-components/5.3.5_biqbaboplfbrettd7655fr4n2y
 
 devDependencies:
@@ -7531,6 +7533,21 @@ packages:
       indent-string: registry.npmmirror.com/indent-string/4.0.0
       strip-indent: registry.npmmirror.com/strip-indent/3.0.0
     dev: true
+
+  registry.npmmirror.com/redux-persist/6.0.0_react@18.2.0:
+    resolution: {integrity: sha512-71LLMbUq2r02ng2We9S215LtPu3fY0KgaGE0k8WRgl6RkqxtGfl7HUozz1Dftwsb0D/5mZ8dwAaPbtnzfvbEwQ==, registry: http://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/redux-persist/-/redux-persist-6.0.0.tgz}
+    id: registry.npmmirror.com/redux-persist/6.0.0
+    name: redux-persist
+    version: 6.0.0
+    peerDependencies:
+      react: '>=16'
+      redux: '>4.0.0'
+    peerDependenciesMeta:
+      react:
+        optional: true
+    dependencies:
+      react: registry.npmmirror.com/react/18.2.0
+    dev: false
 
   registry.npmmirror.com/redux-thunk/2.4.1_redux@4.2.0:
     resolution: {integrity: sha512-OOYGNY5Jy2TWvTL1KgAlVy6dcx3siPJ1wTq741EPyUKfn6W6nChdICjZwCd0p8AZBs5kWpZlbkXW2nE/zjUa+Q==, registry: http://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/redux-thunk/-/redux-thunk-2.4.1.tgz}

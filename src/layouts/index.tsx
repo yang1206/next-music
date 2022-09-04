@@ -2,9 +2,9 @@ import { useEffect } from 'react'
 import { BackTop, Layout } from 'antd'
 // import { TransitionGroup, CSSTransition } from 'react-transition-group'
 import { useAppDispatch } from '@/hooks/useStore'
-// import initLoginInfo from '@/config/token'
-// import { setLoginInfo, getLoginInfo } from '@/utils/secretKey'
-// import { getLoginProfileInfo } from '@/store/slice/Login'
+import initLoginInfo from '@/config/token'
+import { setLoginInfo, getLoginInfo } from '@/utils/secretKey'
+import { getLoginProfileInfo } from '@/store/slice/Login'
 import { getSongDetailArray } from '@/store/slice/Player'
 import { useGlobalKeyboardEvent } from '@/hooks/useKeyboard'
 import { addPlaylistId, getCurrentSongIndex, getPlaylistId, initCurrentSongIndex } from '@/utils/storage'
@@ -18,15 +18,17 @@ const LayoutIndex = ({ children }) => {
 
   // 初始化
   const initLogin = () => {
-    // 存在登录信息
-    // if (localStorage.getItem('loginInfo') != null) {
-    //   const { username, password } = getLoginInfo('loginInfo')
-    //   username && password ? dispatch(getLoginProfileInfo({ username: username, password: password })) : ''
-    // }
-    // // 不存在登录信息
-    // else {
-    //   setLoginInfo('loginInfo', initLoginInfo)
-    // }
+    //存在登录信息
+    if (typeof window !== 'undefined') {
+      if (localStorage.getItem('loginInfo') != null) {
+        const { username, password } = getLoginInfo('loginInfo')
+        username && password ? dispatch(getLoginProfileInfo({ username: username, password: password })) : ''
+      }
+      // 不存在登录信息
+      else {
+        setLoginInfo('loginInfo', initLoginInfo)
+      }
+    }
   }
   initLogin()
 

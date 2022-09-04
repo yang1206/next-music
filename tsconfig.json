@@ -18,10 +18,11 @@
     // 模块名到基于 baseUrl的路径映射的列表。
     "paths": {
       "@": ["src"],
-      "@/*": ["src/*"]
+      "@/*": ["src/*"],
+      "public": ["public"]
     },
     "isolatedModules": true
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "server.js"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "server.cjs"],
   "exclude": ["node_modules", ".next", "dist"]
 }

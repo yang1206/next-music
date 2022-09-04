@@ -38,5 +38,5 @@ export function getLoginInfo(key: string) {
  */
 export function clearLoginState() {
   localStorage.clear()
-  window.location.reload()
+  window.location.href = '/'
 }

@@ -5,7 +5,7 @@ export interface IHeaderLinks {
 export const headerLinks: IHeaderLinks[] = [
   {
     title: '发现音乐',
-    link: '/discover'
+    link: '/'
   },
   {
     title: '我的音乐',
@@ -74,7 +74,7 @@ export const footerImages = [
 export const discoverMenu = [
   {
     title: '推荐',
-    link: '/discover/recommend'
+    link: '/'
   },
   {
     title: '排行榜',

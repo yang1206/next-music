@@ -3,7 +3,7 @@ import { DownOutlined } from '@ant-design/icons'
 import { clearLoginState } from '@/utils/secretKey'
 import { useAppDispatch, useAppSelector } from '@/hooks/useStore'
 import { selectLoginState, selectProfile, selectIsVisible, changeIsVisible } from '@/store/slice/Login'
-// import Login from '@/components/Login'
+import Login from '@/components/common/Login'
 import { DropdownWrapper } from './style'
 export default function Avatar() {
   const dispatch = useAppDispatch()
@@ -19,7 +19,7 @@ export default function Avatar() {
         {
           key: '1',
           label: (
-            <a rel="noopener noreferrer" href="#/user">
+            <a rel="noopener noreferrer" href="/user">
               {profile.nickname}
             </a>
           )
@@ -27,7 +27,7 @@ export default function Avatar() {
         {
           key: '2',
           label: (
-            <a rel="noopener noreferrer" href="#/user">
+            <a rel="noopener noreferrer" href="/user">
               我的主页
             </a>
           )
@@ -59,8 +59,7 @@ export default function Avatar() {
           </a>
         </div>
       )}
-      {isVisible && <></>}
-      {/* <Login /> */}
+      {isVisible && <Login />}
     </DropdownWrapper>
   )
 }

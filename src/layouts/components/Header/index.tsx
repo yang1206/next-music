@@ -1,14 +1,21 @@
 import Link from 'next/link'
+import { useRouter } from 'next/router'
 import Search from './components/Search'
 import Avatar from './components/Avatar'
 import { headerLinks } from '@/common/localData'
 import { HeaderWrapper } from './style'
+
 export default function Header() {
+  const router = useRouter()
+  let isDiscover = router.asPath.indexOf('discover') !== -1
   const showSelectItem = (item: any, index: number): JSX.Element => {
+    let discoverActive = item.link == '/' && isDiscover
+    let topActive = item.link === router.asPath
+    const className = discoverActive || topActive ? 'active' : ''
     if (index < 3) {
       return (
         <Link href={item.link}>
-          <a>
+          <a className={className}>
             {item.title}
             <i className="sprite_01 icon"></i>
           </a>
