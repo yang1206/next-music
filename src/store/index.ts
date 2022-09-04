@@ -1,4 +1,7 @@
 import { configureStore } from '@reduxjs/toolkit'
+import storage from 'redux-persist/lib/storage'
+import { combineReducers } from '@reduxjs/toolkit'
+import { persistReducer } from 'redux-persist'
 //中间件插件示例：添加redux-logger中间件
 // import logger from 'redux-logger'
 // import counterSlice from './slice/demo'
@@ -8,16 +11,24 @@ import searchSlice from './slice/Search'
 import SongListSlice from './slice/SongList'
 import LoginSlice from './slice/Login'
 import TopListSlice from './slice/TopList'
+const reducers = combineReducers({
+  recommend: recommendSlice,
+  player: playerSlice,
+  search: searchSlice,
+  songList: SongListSlice,
+  login: LoginSlice,
+  topList: TopListSlice
+})
+const persistConfig = {
+  key: 'root',
+  storage,
+  //只需要存储登录信息，否则会出现客户端与服务端不一致的情况
+  whitelist: ['login']
+}
+//持久化redux
+const persistedReducer = persistReducer(persistConfig, reducers)
 const store = configureStore({
-  reducer: {
-    // counter: counterSlice,
-    recommend: recommendSlice,
-    player: playerSlice,
-    search: searchSlice,
-    songList: SongListSlice,
-    login: LoginSlice,
-    topList: TopListSlice
-  },
+  reducer: persistedReducer,
   //使用redux-logger中间件
   middleware: getDefaultMiddleware =>
     getDefaultMiddleware({

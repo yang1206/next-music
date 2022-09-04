@@ -1,4 +1,5 @@
 import styled from 'styled-components'
+import sprite_01 from 'public/img/sprite_01.png'
 export const HeaderWrapper = styled.div`
 position: relative;
   top: 0;
@@ -51,7 +52,7 @@ position: relative;
               width: 28px;
               height: 19px;
               content: '';
-              background-image: url(${require('../../../../public/img/sprite_01.png')});
+              background-image: url(${sprite_01.src});
               background-position: -190px 0;
             }
           }
@@ -113,9 +114,7 @@ position: relative;
   }
 }
 @media screen and (max-width: 900px) {
-  .HeaderWrapper {
     width: 1000px !important;
-  }
 }
 @media screen and (max-width: 1200px) {
   .content {
