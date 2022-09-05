@@ -23,6 +23,6 @@
     },
     "isolatedModules": true
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "server.cjs"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "server.cjs", "proxy.cjs"],
   "exclude": ["node_modules", ".next", "dist"]
 }
