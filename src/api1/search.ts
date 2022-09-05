@@ -6,7 +6,7 @@ type Param = {
 }
 export const getSearch = (data: Param) => {
   return request({
-    url: '/search',
+    url: '/api/search',
     method: 'GET',
     data
   })
