@@ -28,12 +28,12 @@ const SongItem: React.FC<any> = props => {
     // document.getElementById('audio').autoplay = true
   }
   const addPlaylist = useAddPlaylist(playList)
-
+  const handleClick = () => {}
   return (
     <SongItemWrapper className={className} style={{ margin: '20px 0' }}>
       {coverPic && (
         <Link href="/song" className="song-item" onClick={e => playMusic(e, true)}>
-          <img src={getSizeImage(coverPic, 50)} alt="" />
+          <img onClick={handleClick} src={getSizeImage(coverPic, 50)} alt="" />
         </Link>
       )}
       <div className="song-item song-info">
@@ -44,7 +44,7 @@ const SongItem: React.FC<any> = props => {
             </a>
             <br />
             <Link href="/song" className="song-item singer" onClick={e => playMusic(e, true)}>
-              {singer}
+              <a onClick={handleClick}>{singer}</a>
             </Link>
           </div>
         </div>

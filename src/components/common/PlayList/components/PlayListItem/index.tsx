@@ -32,13 +32,16 @@ const PlayListItem: React.FC<Props> = (props: Props) => {
   }
   const addPlaylist = useAddPlaylist(playList)
   const width = coverPic ? '258px' : '328px'
+  const handleClick = () => {}
   return (
     <SongItemWrapper className={className}>
       <div className="song-item rank-count">{currentRanking}</div>
       {coverPic && (
         <span className="song-item">
           <Link href="/discover/song" onClick={e => playMusic(e, true)}>
-            <img src={getSizeImage(coverPic, 50)} alt="" />
+            <a onClick={handleClick}>
+              <img src={getSizeImage(coverPic, 50)} alt="" />
+            </a>
           </Link>
         </span>
       )}
@@ -55,12 +58,16 @@ const PlayListItem: React.FC<Props> = (props: Props) => {
       </div>
       <div className="song-item duration">{duration}</div>
       <div className="song-item singer">
-        <Link href={`/artist?id=${singerId}`}>{singer}</Link>
+        <Link href={`/artist?id=${singerId}`}>
+          <a onClick={handleClick}>{singer}</a>
+        </Link>
       </div>
 
       {album && !hideAl && (
         <div className="song-item album">
-          <Link href={`/album?id=${albumId}`}>{album}</Link>
+          <Link href={`/album?id=${albumId}`}>
+            <a onClick={handleClick}>{album}</a>
+          </Link>
         </div>
       )}
     </SongItemWrapper>

@@ -193,10 +193,10 @@ button {
   /* background: url(../img/music.svg) repeat 0 9999px;; */
 }
 
-.new-logo {
+/* .new-logo {
   background: url('../../public/img/music.svg') no-repeat;
   background-size: contain;
-}
+} */
 
 .date {
   background: url('../../public/img/date.png') no-repeat 0 9999px;

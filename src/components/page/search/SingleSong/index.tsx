@@ -21,7 +21,7 @@ const SingleSong: React.FC<Props> = ({ songId, songName, singer, album, duration
   const playMusic = () => {
     dispatch(getSong({ id: songId, isPlay: true }))
   }
-
+  const handleClick = () => {}
   const addPlaylist = useAddPlaylist(playList)
   return (
     <SingleSongItemWrapper>
@@ -31,7 +31,7 @@ const SingleSong: React.FC<Props> = ({ songId, songName, singer, album, duration
         <button className="sprite_icon2 btn addto" onClick={e => addPlaylist(e, songId)}></button>
       </div>
       <Link href="/discover/song" className="singer" onClick={() => playMusic()}>
-        {singer}
+        <a onClick={handleClick}>{singer}</a>
       </Link>
       <div className="text-nowrap album">《{album}》</div>
       <div className="text-nowrap duration">{duration}</div>

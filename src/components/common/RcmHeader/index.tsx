@@ -8,6 +8,7 @@ type Headers = {
   right?: any
   keywordClick?: (item: string, index?: number) => void
 }
+const handleClick = () => {}
 const RcmHeader: React.FC<Headers> = props => {
   const { title, keywords, keywordClick, moreLink, right } = props
   return (
@@ -29,7 +30,11 @@ const RcmHeader: React.FC<Headers> = props => {
         </div>
       </div>
       <div className="right">
-        {moreLink && <Link href={moreLink}>更多</Link>}
+        {moreLink && (
+          <Link href={moreLink}>
+            <a onClick={handleClick}>更多</a>
+          </Link>
+        )}
         {right ? right : <i className="icon sprite_02"></i>}
       </div>
     </RcmHeaderWrapper>

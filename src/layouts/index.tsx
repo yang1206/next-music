@@ -55,7 +55,7 @@ const LayoutIndex = ({ children }) => {
         {/* <TransitionGroup className="content"> */}
         {/* exit：表示退出当前页面的时候是否有动画 */}
         {/* <CSSTransition key={pathname} timeout={200} classNames="page" unmountOnExit> */}
-        <>{children}</>
+        {children}
         {/* </CSSTransition>
         </TransitionGroup> */}
       </Content>

@@ -191,7 +191,7 @@ const PlayBar: React.FC = () => {
   const changingVolume = (value: number) => {
     audioRef.current.volume = value / 100
   }
-
+  const handleClick = () => {}
   return (
     <PlayerBarWrapper className="sprite_player">
       <div className="player-content wrap-v2">
@@ -213,18 +213,22 @@ const PlayBar: React.FC = () => {
         <div className="PlayInfo">
           <div className="image">
             <Link href="/song" passHref>
-              {currentSong && <img src={getSizeImage(currentSong?.al.picUrl, 35)} alt="" />}
+              <a onClick={handleClick}>{currentSong && <img src={getSizeImage(currentSong?.al.picUrl, 35)} alt="" />}</a>
             </Link>
           </div>
           <div className="info">
             <div className="song">
               <span className="song-name">
                 <Link href="/song" passHref>
-                  {currentSong?.name}
+                  <a onClick={handleClick}>{currentSong?.name}</a>
                 </Link>
               </span>
               <span className="singer-name">
-                {currentSong?.ar[0] && <Link href={`/artist?id=${currentSong?.ar[0].id}`}>{currentSong?.ar[0].name}</Link>}
+                {currentSong?.ar[0] && (
+                  <Link href={`/artist?id=${currentSong?.ar[0].id}`}>
+                    <a onClick={handleClick}>{currentSong?.ar[0].name}</a>
+                  </Link>
+                )}
               </span>
             </div>
             <div className="progress">

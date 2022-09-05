@@ -8,6 +8,7 @@ import { HeaderWrapper } from './style'
 export default function Header() {
   const router = useRouter()
   let isDiscover = router.asPath.indexOf('discover') !== -1
+  const handleClick = () => {}
   const showSelectItem = (item: any, index: number): JSX.Element => {
     let discoverActive = item.link == '/' && isDiscover
     let topActive = item.link === router.asPath
@@ -15,7 +16,7 @@ export default function Header() {
     if (index < 3) {
       return (
         <Link href={item.link}>
-          <a className={className}>
+          <a className={className} onClick={handleClick}>
             {item.title}
             <i className="sprite_01 icon"></i>
           </a>
