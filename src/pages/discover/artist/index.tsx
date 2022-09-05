@@ -5,7 +5,7 @@ import ArtistCategory from '@/components/page/discover/artist/ArtistCategory'
 import ArtistCover from '@/components/common/ArtistCover'
 import Pagination from '@/components/common/Pagination'
 import NavBar from '@/components/common/NavBar'
-import { AllAlbumWrapper } from './style'
+import { AllAlbumWrapper } from '@/styles/page/discover/artist'
 //TODO 完成歌手
 const ArtistList: React.FC = () => {
   const router = useRouter()

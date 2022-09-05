@@ -6,7 +6,7 @@ import { getSongSimi } from '@/api/song'
 import SongInfo from '@/components/page/song/components/SongInfo'
 import SongItem from '@/components/page/song/components/SongItem'
 import SongComments from '@/components/page/song/components/SongComments'
-import { PlayerWrapper } from './style'
+import { PlayerWrapper } from '@/styles/page/song'
 const Player: React.FC = () => {
   const dispatch = useAppDispatch()
   const [simiList, setSimiList] = useState([])

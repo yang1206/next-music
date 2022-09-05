@@ -8,7 +8,7 @@ import RcmHeader from '@/components/common/RcmHeader'
 import Authentication from '@/components/common/Authentication'
 import PlayList from '@/components/common/PlayList'
 import NavBar from '@/components/common/NavBar'
-import { DayRecommendContent } from './style'
+import { DayRecommendContent } from '@/styles/page/discover/dailysongs'
 const DailySongs: React.FC = () => {
   const [recommendPlaylist, setRecommendPlaylist] = useState([])
   const router = useRouter()

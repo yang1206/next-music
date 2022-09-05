@@ -10,7 +10,7 @@ import { ManOutlined, PlayCircleOutlined, WomanOutlined } from '@ant-design/icon
 import { Input, message } from 'antd'
 import RcmHeader from '@/components/common/RcmHeader'
 import SongsCover from '@/components/common/SongsCover'
-import { ProfileWrapper } from './style'
+import { ProfileWrapper } from '@/styles/page/user'
 const User: React.FC = () => {
   const router = useRouter()
   const dispatch = useAppDispatch()

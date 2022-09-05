@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import wrap_bg from 'public/img/wrap-bg.png'
+import wrap_bg from 'public/img/wrap_bg.png'
 export const PlayerWrapper = styled.div`
   .content {
     display: flex;

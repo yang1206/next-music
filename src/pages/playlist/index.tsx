@@ -4,7 +4,7 @@ import NavBar from '@/components/common/NavBar'
 import { useAppDispatch } from '@/hooks/useStore'
 import { getSongListDetailData } from '@/store/slice/SongList'
 import SongListInfo from '@/components/page/playlist/SongListInfo'
-import { SongListWrapper } from './style'
+import { SongListWrapper } from '@/styles/page/playlist'
 const PlayList: React.FC = () => {
   const router = useRouter()
   const { id }: any = router.query

@@ -6,7 +6,7 @@ import { getCategory, getPlayList, changeCurrentCategory } from '@/store/slice/S
 import NavBar from '@/components/common/NavBar'
 import SongsHeader from '@/components/page/discover/songs/SongsHeader'
 import SongsList from '@/components/page/discover/songs/SongsList'
-import { PlaylistWrapper } from './style'
+import { PlaylistWrapper } from '@/styles/page/discover/playlist'
 const Songs: React.FC = () => {
   const router = useRouter()
   const dispatch = useAppDispatch()
