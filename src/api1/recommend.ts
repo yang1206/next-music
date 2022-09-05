@@ -2,14 +2,14 @@ import request from '@/service'
 import { Recommend } from '@/api/interface'
 export const getBannerList = (data?: any) => {
   return request({
-    url: '/banner',
+    url: '/api/banner',
     method: 'GET',
     data
   })
 }
 export const getPersonalizedList = (data?: Recommend.SongListParams) => {
   return request({
-    url: '/personalized',
+    url: '/api/personalized',
     method: 'GET',
     data
   })
@@ -17,7 +17,7 @@ export const getPersonalizedList = (data?: Recommend.SongListParams) => {
 //新碟上架
 export const getTopAlbums = (data?: Recommend.TopAlbums) => {
   return request({
-    url: '/top/album',
+    url: '/api/top/album',
     method: 'GET',
     data
   })
@@ -25,7 +25,7 @@ export const getTopAlbums = (data?: Recommend.TopAlbums) => {
 //全部新碟
 export const getNewAlbums = (area: string = 'ALL', limit?: number, offset?: any) => {
   return request({
-    url: '/album/new',
+    url: '/api/album/new',
     method: 'GET',
     data: {
       area,
@@ -37,14 +37,14 @@ export const getNewAlbums = (area: string = 'ALL', limit?: number, offset?: any)
 //首页热门新碟
 export const getNewestAlbums = (data?: Recommend.NewAlbums) => {
   return request({
-    url: '/album/newest',
+    url: '/api/album/newest',
     method: 'GET',
     data
   })
 }
 export const getTopList = (data?: Recommend.TopList) => {
   return request({
-    url: '/top/list',
+    url: '/api/top/list',
     method: 'GET',
     data
   })
@@ -52,7 +52,7 @@ export const getTopList = (data?: Recommend.TopList) => {
 //获取歌单详情，同时也是获取排行榜的接口
 export const getPlaylist = (data: Recommend.Playlist) => {
   return request({
-    url: '/playlist/detail',
+    url: '/api/playlist/detail',
     method: 'GET',
     data
   })
@@ -60,7 +60,7 @@ export const getPlaylist = (data: Recommend.Playlist) => {
 //获取全部榜单
 export const getAllTopList = (id: number | string) => {
   return request({
-    url: '/toplist',
+    url: '/api/toplist',
     method: 'GET',
     data: {
       id
@@ -71,7 +71,7 @@ export const getAllTopList = (id: number | string) => {
 //获取每日推荐歌曲
 export const getRecommendsongs = () => {
   return request({
-    url: '/recommend/songs',
+    url: '/api/recommend/songs',
     method: 'GET'
   })
 }
