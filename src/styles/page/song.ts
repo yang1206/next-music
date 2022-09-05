@@ -4,7 +4,7 @@ export const PlayerWrapper = styled.div`
   .content {
     display: flex;
     padding-top: 20px;
-    background: url(${wrap_bg.src}) repeat-y;
+    // background: url(${wrap_bg.src}) repeat-y;
     background-color: #ffffff;
 
     .PlayerLeft {
