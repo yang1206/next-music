@@ -1,10 +1,10 @@
 import styled from 'styled-components'
-import wrap_bg from 'public/img/wrap_bg.png'
+//import wrap_bg from 'public/img/wrap_bg.png'
 export const PlayerWrapper = styled.div`
   .content {
     display: flex;
     padding-top: 20px;
-    background: url(${wrap_bg.src}) repeat-y;
+   // background: url(${wrap_bg.src}) repeat-y;
     background-color: #ffffff;
 
     .PlayerLeft {
