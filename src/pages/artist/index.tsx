@@ -5,7 +5,7 @@ import { getArtists, getArtistsAlbum, getArtistsDesc } from '@/api/artist'
 import NavBar from '@/components/common/NavBar'
 import PlayList from '@/components/common/PlayList'
 import AlbumCover from '@/components/common/AlbumCover'
-import { ArtistDetailWrapper } from './style'
+import { ArtistDetailWrapper } from '@/styles/page/artist'
 const Artist: React.FC = () => {
   const router = useRouter()
   const { id }: any = router.query

@@ -14,7 +14,7 @@ import SingleSong from '@/components/page/search/SingleSong'
 import ArtistCover from '@/components/common/ArtistCover'
 import AlbumCover from '@/components/common/AlbumCover'
 import { formatMinuteSecond } from '@/utils/format'
-import { SearchWrapper } from './style'
+import { SearchWrapper } from '@/styles/page/search'
 const SearchContent: React.FC = () => {
   const [activeKey, setActive] = useState<string>()
   const [searchValue, setSearchValue] = useState<string>()

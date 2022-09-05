@@ -3,7 +3,7 @@ import { useRouter } from 'next/router'
 import NavBar from '@/components/common/NavBar'
 import { getAlbumDetail } from '@/api/album'
 import AlbumInfo from '@/components/page/album/AlbumInfo'
-import { AlbumDetailWrapper } from './style'
+import { AlbumDetailWrapper } from '@/styles/page/album'
 const Album: React.FC = () => {
   const [albumDetail, setAlbum] = useState()
   const router = useRouter()
