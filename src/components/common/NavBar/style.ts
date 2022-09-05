@@ -38,7 +38,7 @@ export const NavBarWrapper = styled.div`
   }
   @media screen and (max-width: 1280px) {
     .TopMenu {
-      padding-left: 172px !important;
+      padding-left: 165px !important;
     }
   }
   @media screen and (max-width: 900px) {
