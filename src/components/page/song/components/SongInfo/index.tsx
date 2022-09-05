@@ -16,6 +16,7 @@ const SongInfo: React.FC = () => {
   const album = currentSong.al && currentSong.al?.name
   const albumId = currentSong.al && currentSong.al?.id
   const playMusic = () => {}
+  const handleClick = () => {}
   return (
     <SongInfoWrapper>
       <div className="album">
@@ -30,11 +31,15 @@ const SongInfo: React.FC = () => {
         </div>
         <div className="singer">
           <span>歌手：</span>
-          <Link href={{ pathname: '/artist', query: { id: singerId } }}>{singer}</Link>
+          <Link href={{ pathname: '/artist', query: { id: singerId } }}>
+            <a onClick={handleClick}>{singer}</a>
+          </Link>
         </div>
         <div className="settle-album">
           <span>所属专辑：</span>
-          <Link href={{ pathname: '/album', query: { id: albumId } }}>{album}</Link>
+          <Link href={{ pathname: '/album', query: { id: albumId } }}>
+            <a onClick={handleClick}>{album}</a>
+          </Link>
         </div>
         <div className="controls">
           <div className="sprite_button play pointer" onClick={() => playMusic()}>

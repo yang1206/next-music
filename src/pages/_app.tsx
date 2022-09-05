@@ -1,5 +1,6 @@
 import React, { FC } from 'react'
 import { AppProps } from 'next/app'
+import Head from 'next/head'
 import store from '../store'
 import { PersistGate } from 'redux-persist/integration/react'
 import { persistStore } from 'redux-persist'
@@ -12,6 +13,9 @@ import 'normalize.css/normalize.css'
 let persistor = persistStore(store)
 const App: FC<AppProps> = ({ Component, pageProps }) => (
   <Provider store={store}>
+    <Head>
+      <title>Next Music</title>
+    </Head>
     <PersistGate loading={null} persistor={persistor}>
       <Layout>
         <Component {...pageProps} />
