@@ -1,4 +1,5 @@
 import styled from 'styled-components'
+import recommend_cover from 'public/img/recommend-cover.jpg'
 export const DayRecommendContent = styled.div`
   height: auto;
 
@@ -7,7 +8,7 @@ export const DayRecommendContent = styled.div`
     height: 179px;
     margin: 20px auto;
     overflow: hidden;
-    background: url('@/assets/img/recommend-cover.jpg') no-repeat;
+    background: url(${recommend_cover.src}) no-repeat;
     background-size: cover;
   }
 
