@@ -16,7 +16,7 @@ interface HttpRequestConfig<T, R> extends RequestConfig<IResponse<R>> {
   data?: T
 }
 const request = new Request({
-  baseURL: 'https://netease-cloud-music-api-yang1206.vercel.app/',
+  baseURL: process.env.NEXT_BASEURL,
   timeout: 1000 * 60 * 4,
   withCredentials: true,
   interceptors: {
