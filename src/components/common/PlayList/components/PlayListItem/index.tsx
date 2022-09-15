@@ -38,7 +38,7 @@ const PlayListItem: React.FC<Props> = (props: Props) => {
       <div className="song-item rank-count">{currentRanking}</div>
       {coverPic && (
         <span className="song-item">
-          <Link href="/discover/song" onClick={e => playMusic(e, true)}>
+          <Link href="/song" onClick={e => playMusic(e, true)}>
             <a onClick={handleClick}>
               <img src={getSizeImage(coverPic, 50)} alt="" />
             </a>
