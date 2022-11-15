@@ -1,12 +1,12 @@
-import React, { useEffect, memo } from 'react'
+import React, { memo, useEffect } from 'react'
 import { useRouter } from 'next/router'
+import { HotRecommendWrapper } from './style'
 import { useAppDispatch, useAppSelector } from '@/hooks/useStore'
-import { selectPersonalized, getPersonalized } from '@/store/slice/recommend'
-import { Recommend } from '@/store/interface/recommend'
+import { getPersonalized, selectPersonalized } from '@/store/slice/recommend'
+import type { Recommend } from '@/store/interface/recommend'
 import RcmHeader from '@/components/common/RcmHeader'
 import SongsCover from '@/components/common/SongsCover'
 // import { useNavigate } from 'react-router-dom'
-import { HotRecommendWrapper } from './style'
 const HotRecommend: React.FC = () => {
   const router = useRouter()
   const props = {
@@ -15,14 +15,15 @@ const HotRecommend: React.FC = () => {
     moreLink: '/discover/playlist',
     keywordClick: (item?: string) => {
       router.push(`/discover/playlist?cat=${item}`)
-    }
+    },
   }
   const dispatch = useAppDispatch()
   useEffect(() => {
     dispatch(getPersonalized())
   }, [])
   const PersonalizedData = useAppSelector(selectPersonalized)
-  if (!PersonalizedData) return null
+  if (!PersonalizedData)
+    return null
   return (
     <HotRecommendWrapper>
       <RcmHeader {...props} />

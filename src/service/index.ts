@@ -1,7 +1,7 @@
-import Request from './request'
-import { AxiosResponse, AxiosRequestConfig } from 'axios'
-import type { RequestConfig } from './request/types'
+import type { AxiosRequestConfig, AxiosResponse } from 'axios'
 import { message } from 'antd'
+import Request from './request'
+import type { RequestConfig } from './request/types'
 import NProgress from '@/config/nprogress'
 export interface IResponse<T> {
   [x: string]: any
@@ -29,11 +29,11 @@ const request = new Request({
       NProgress.done()
       return result
     },
-    responseInterceptorsCatch: error => {
+    responseInterceptorsCatch: (error) => {
       NProgress.done()
       error.response && message.error(error.message)
-    }
-  }
+    },
+  },
 })
 
 /**
@@ -45,9 +45,9 @@ const request = new Request({
  */
 const HttpRequest = <D = any, T = any>(config: HttpRequestConfig<D, T>): Promise<any> => {
   const { method = 'GET' } = config
-  if (method === 'get' || method === 'GET') {
+  if (method === 'get' || method === 'GET')
     config.params = config.data
-  }
+
   return request.request<IResponse<T>>(config)
 }
 // 取消请求

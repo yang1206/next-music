@@ -1,4 +1,4 @@
-import React, { useEffect, useState, memo } from 'react'
+import React, { memo, useEffect, useState } from 'react'
 import { useRouter } from 'next/router'
 import { getArtistsList } from '@/api/artist'
 import ArtistCategory from '@/components/page/discover/artist/ArtistCategory'
@@ -6,14 +6,14 @@ import ArtistCover from '@/components/common/ArtistCover'
 import Pagination from '@/components/common/Pagination'
 import NavBar from '@/components/common/NavBar'
 import { AllAlbumWrapper } from '@/styles/page/discover/artist'
-//TODO 完成歌手
+// TODO 完成歌手
 const ArtistList: React.FC = () => {
   const router = useRouter()
   const { area, type, cat }: any = router.query
   const [artistList, setArtistList] = useState([])
   const [currentPage, setCurrentPage] = useState(1)
   useEffect(() => {
-    getArtistsList(type, area, cat, currentPage).then(res => {
+    getArtistsList(type, area, cat, currentPage).then((res) => {
       setArtistList(res.artists)
     })
   }, [area, type, cat, currentPage])
@@ -33,8 +33,8 @@ const ArtistList: React.FC = () => {
           </div>
           <div className="ArtistListRight">
             <div className="artistList">
-              {artistList &&
-                artistList.map(item => {
+              {artistList
+                && artistList.map((item) => {
                   return <ArtistCover key={item.id} id={item.id} coverPic={item.picUrl} singer={item.name} />
                 })}
             </div>

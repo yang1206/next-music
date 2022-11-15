@@ -1,13 +1,13 @@
 import React, { Fragment } from 'react'
-import { footerLinks } from '@/common/localData'
 import { AppFooterWrapper } from './style'
+import { footerLinks } from '@/common/localData'
 export default function Footer() {
   return (
     <AppFooterWrapper>
       <div className="wrap-v2 content">
         <div className="left">
           <div className="link">
-            {footerLinks.map(item => {
+            {footerLinks.map((item) => {
               return (
                 <Fragment key={item.title}>
                   <a href={item.link} target="_blank" rel="noopener noreferrer">

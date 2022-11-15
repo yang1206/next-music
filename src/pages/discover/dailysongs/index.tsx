@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useCallback, memo } from 'react'
+import React, { memo, useCallback, useEffect, useState } from 'react'
 import { useRouter } from 'next/router'
 import { useAppDispatch, useAppSelector } from '@/hooks/useStore'
 import { changeIsVisible, selectLoginState } from '@/store/slice/Login'
@@ -16,14 +16,14 @@ const DailySongs: React.FC = () => {
   const isLogin = useAppSelector(selectLoginState).data
   // 获取推荐歌单列表
   useEffect(() => {
-    isLogin &&
-      getRecommendsongs().then(res => {
+    isLogin
+      && getRecommendsongs().then((res) => {
         const result = res.data
         setRecommendPlaylist(result.dailySongs)
       })
   }, [isLogin])
   const toRedirect = useCallback(() => {
-    router.push(`/`)
+    router.push('/')
   }, [router])
   const showModal = useCallback(() => {
     dispatch(changeIsVisible(true))

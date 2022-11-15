@@ -3,7 +3,7 @@ import { BackTop, Layout } from 'antd'
 // import { TransitionGroup, CSSTransition } from 'react-transition-group'
 import { useAppDispatch } from '@/hooks/useStore'
 import initLoginInfo from '@/config/token'
-import { setLoginInfo, getLoginInfo } from '@/utils/secretKey'
+import { getLoginInfo, setLoginInfo } from '@/utils/secretKey'
 import { getLoginProfileInfo } from '@/store/slice/Login'
 import { getSongDetailArray } from '@/store/slice/Player'
 import { useGlobalKeyboardEvent } from '@/hooks/useKeyboard'
@@ -18,11 +18,12 @@ const LayoutIndex = ({ children }) => {
 
   // 初始化
   const initLogin = () => {
-    //存在登录信息
+    // 存在登录信息
     if (typeof window !== 'undefined') {
       if (localStorage.getItem('loginInfo') != null) {
         const { username, password } = getLoginInfo('loginInfo')
-        username && password ? dispatch(getLoginProfileInfo({ username: username, password: password })) : ''
+        if (username && password)
+          dispatch(getLoginProfileInfo({ username, password }))
       }
       // 不存在登录信息
       else {
@@ -41,11 +42,11 @@ const LayoutIndex = ({ children }) => {
 
   // 本地存储读取歌曲列表ID
   useEffect(() => {
-    //动态获取locals store音乐索引
+    // 动态获取locals store音乐索引
     const index = getCurrentSongIndex()
-    dispatch(getSongDetailArray({ listId: getPlaylistId(), index: index }))
+    dispatch(getSongDetailArray({ listId: getPlaylistId(), index }))
   }, [dispatch])
-  //全局唤醒搜索框hook
+  // 全局唤醒搜索框hook
   useGlobalKeyboardEvent()
   return (
     <Layout>

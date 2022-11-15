@@ -1,8 +1,8 @@
 import React, { memo } from 'react'
 import { useRouter } from 'next/router'
-import { getSizeImage, getCount } from '@/utils/format'
-import { Recommend } from '@/store/interface/recommend'
 import { SongCoverWrapper } from './style'
+import { getCount, getSizeImage } from '@/utils/format'
+import type { Recommend } from '@/store/interface/recommend'
 interface Props {
   info: Recommend.perSonalizeder
   key?: number
@@ -15,7 +15,7 @@ const SongCover: React.FC<Props> = (props: any) => {
     router.push(`/playlist?id=${id}`)
   }
   return (
-    <SongCoverWrapper style={{ margin: margin }}>
+    <SongCoverWrapper style={{ margin }}>
       <div className="cover-top">
         <img src={getSizeImage(info.picUrl || info.coverImgUrl, 140)} alt="" />
         <div className="cover sprite_cover">

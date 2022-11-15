@@ -4,7 +4,7 @@ export const getAlbumDetail = (id: number | string) => {
     url: '/api/album',
     method: 'GET',
     data: {
-      id
-    }
+      id,
+    },
   })
 }

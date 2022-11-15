@@ -1,13 +1,13 @@
 import React, { memo } from 'react'
 import Link from 'next/link'
-import { useAddPlaylist } from '@/hooks/useAddPlaylist'
-import { useAppSelector, useAppDispatch } from '@/hooks/useStore'
-import { selectPlayList } from '@/store/slice/Player'
-import { getSizeImage } from '@/utils/format'
-import { getSong } from '@/store/slice/Player'
 import { PlayCircleOutlined } from '@ant-design/icons'
 import { SongItemWrapper } from './style'
-const SongItem: React.FC<any> = props => {
+import { useAddPlaylist } from '@/hooks/useAddPlaylist'
+import { useAppDispatch, useAppSelector } from '@/hooks/useStore'
+import { getSong, selectPlayList } from '@/store/slice/Player'
+import { getSizeImage } from '@/utils/format'
+
+const SongItem: React.FC<any> = (props) => {
   // props/state
   const {
     coverPic,
@@ -15,20 +15,21 @@ const SongItem: React.FC<any> = props => {
     singer,
     songId,
     songName,
-    className = ''
+    className = '',
   } = props
   // redux hook
   const dispatch = useAppDispatch()
   const playList = useAppSelector(selectPlayList).data
   // other function
   const playMusic = (e: React.MouseEvent<HTMLSpanElement, MouseEvent>, isTo = false) => {
-    if (!isTo) e.preventDefault()
+    if (!isTo)
+      e.preventDefault()
     dispatch(getSong({ id: songId, isPlay: true }))
     // 播放音乐
     // document.getElementById('audio').autoplay = true
   }
   const addPlaylist = useAddPlaylist(playList)
-  const handleClick = () => {}
+  const handleClick = () => { }
   return (
     <SongItemWrapper className={className} style={{ margin: '20px 0' }}>
       {coverPic && (
@@ -44,7 +45,7 @@ const SongItem: React.FC<any> = props => {
             </a>
             <br />
             <Link href="/song" className="song-item singer" onClick={e => playMusic(e, true)}>
-              <a onClick={handleClick}>{singer}</a>
+              {singer}
             </Link>
           </div>
         </div>

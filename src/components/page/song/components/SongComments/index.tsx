@@ -1,16 +1,16 @@
-import React, { useEffect, useState, createElement, useCallback, memo } from 'react'
-import { selectHotComments, selectSong } from '@/store/slice/Player'
-import { useAppSelector, useAppDispatch } from '@/hooks/useStore'
-import { changeCurrentTotal, getHotComment } from '@/store/slice/Player'
-import { selectLoginState, selectProfile, changeIsVisible } from '@/store/slice/Login'
+import React, { createElement, memo, useCallback, useEffect, useState } from 'react'
+import { LikeFilled, LikeOutlined } from '@ant-design/icons'
+import { Avatar, Comment, Tooltip, message } from 'antd'
+import CommentsHeader from './components/CommentsHeader'
+import { SongCommentWrapper, WonderfulWrapper } from './style'
+import { changeCurrentTotal, getHotComment, selectHotComments, selectSong } from '@/store/slice/Player'
+import { useAppDispatch, useAppSelector } from '@/hooks/useStore'
+
+import { changeIsVisible, selectLoginState, selectProfile } from '@/store/slice/Login'
 import { getSongComment, sendLikeComment, sendSongComment } from '@/api/song'
 import { getCount } from '@/utils/format'
-import { LikeFilled, LikeOutlined } from '@ant-design/icons'
-import { Comment, Tooltip, Avatar, message } from 'antd'
 import Pagination from '@/components/common/Pagination'
-import CommentsHeader from './components/CommentsHeader'
 import CurComment from '@/components/common/Comment'
-import { SongCommentWrapper, WonderfulWrapper } from './style'
 
 const SongComments: React.FC = () => {
   const [songComment, setSongComment] = useState([])
@@ -26,7 +26,7 @@ const SongComments: React.FC = () => {
   // other hooks
   useEffect(() => {
     dispatch(getHotComment(currentSongId))
-    getSongComment(currentSongId, null, null).then(res => {
+    getSongComment(currentSongId, null, null).then((res) => {
       setSongComment(res.comments)
       // console.log(res)
       setTotal(res.total)
@@ -36,7 +36,7 @@ const SongComments: React.FC = () => {
     })
   }, [dispatch, currentSongId])
   function formatDate(time = +new Date()) {
-    let date = new Date(time + 8 * 3600 * 1000) // 增加8小时
+    const date = new Date(time + 8 * 3600 * 1000) // 增加8小时
     return date.toJSON().substr(0, 19).replace('T', ' ')
   }
   // 点赞评论
@@ -44,18 +44,21 @@ const SongComments: React.FC = () => {
     if (!isLogin) {
       // 没登陆
       dispatch(changeIsVisible(true))
-    } else {
+    }
+    else {
       if (!flag) {
         liked[index].liked = true
         liked[index].count += 1
         setLiked(liked)
         /* 调点赞接口 */
         // console.log(data)
-        sendLikeComment(currentSongId, data.commentId, 1).then(res => {
-          if (res.code === 200) message.success('点赞成功')
+        sendLikeComment(currentSongId, data.commentId, 1).then((res) => {
+          if (res.code === 200)
+            message.success('点赞成功')
           else message.success('请稍后再试')
         })
-      } else {
+      }
+      else {
         liked[index].liked = false
         liked[index].count -= 1
         setLiked(liked)
@@ -63,8 +66,9 @@ const SongComments: React.FC = () => {
         /* 调取消点赞接口 */
         // console.log('disliked')
         /* 调取消点赞赞接口 */
-        sendLikeComment(currentSongId, data.commentId, 0).then(res => {
-          if (res.code === 200) message.success('取消点赞成功')
+        sendLikeComment(currentSongId, data.commentId, 0).then((res) => {
+          if (res.code === 200)
+            message.success('取消点赞成功')
           else message.success('取消点赞成功')
         })
       }
@@ -74,16 +78,16 @@ const SongComments: React.FC = () => {
 
   // 分页
   const changePage = useCallback(
-    currentPage => {
+    (currentPage) => {
       setCurrentPage(currentPage)
       // offset=(当前页数-1)*limit
       const targePageCount = (currentPage - 1) * 20
-      getSongComment(currentSongId, 20, targePageCount).then(res => {
+      getSongComment(currentSongId, 20, targePageCount).then((res) => {
         setSongComment(res.comments)
         setTotal(res.total)
       })
     },
-    [currentSongId]
+    [currentSongId],
   )
 
   // template html action
@@ -91,7 +95,7 @@ const SongComments: React.FC = () => {
   const getLikeTemplateAction = (item: { liked: any; likedCount: any }, index: number) => {
     liked.push({
       liked: item.liked,
-      count: item.likedCount
+      count: item.likedCount,
     })
     return [
       <Tooltip key="comment-basic-like" title="Like" className="comment-like">
@@ -99,24 +103,26 @@ const SongComments: React.FC = () => {
           {createElement(liked[index].liked === true ? LikeFilled : LikeOutlined)}
           <span className="comment-action">{getCount(liked[index].count)}</span>
         </span>
-      </Tooltip>
+      </Tooltip>,
     ]
   }
   // 评论歌曲校验(获取焦点)
   const commentSongcheckout = () => {
     // 没登录
-    if (!isLogin) dispatch(changeIsVisible(true))
+    if (!isLogin)
+      dispatch(changeIsVisible(true))
   }
   // 评论成功
   const commentCallbackOk = (value: string) => {
-    sendSongComment(currentSongId, value).then(res => {
-      if (res.code === 200)
+    sendSongComment(currentSongId, value).then((res) => {
+      if (res.code === 200) {
         message.success('评论成功').then(() => {
-          getSongComment(currentSongId, null, null).then(res => {
+          getSongComment(currentSongId, null, null).then((res) => {
             setSongComment(res.comments)
             setTotal(res.total)
           })
         })
+      }
     })
   }
   return (
@@ -132,8 +138,8 @@ const SongComments: React.FC = () => {
       {/* 精彩评论 */}
       <WonderfulWrapper>
         <div className="header-comment">精彩评论</div>
-        {hotComments &&
-          hotComments.map(item => {
+        {hotComments
+          && hotComments.map((item) => {
             return (
               <Comment
                 // actions={getLikeTemplateAction(item, index)}
@@ -153,8 +159,8 @@ const SongComments: React.FC = () => {
       {/* 最新评论 */}
       <div>
         <div className="header-comment">最新评论</div>
-        {songComment &&
-          songComment.map((item, index) => {
+        {songComment
+          && songComment.map((item, index) => {
             return (
               <Comment
                 actions={getLikeTemplateAction(item, index)}

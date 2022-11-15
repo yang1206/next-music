@@ -1,14 +1,14 @@
-import React, { useEffect, memo } from 'react'
+import React, { memo, useEffect } from 'react'
+import { TopListMainWrapper } from './style'
 import { useAppDispatch, useAppSelector } from '@/hooks/useStore'
 import RcmHeader from '@/components/common/RcmHeader'
 import PlayList from '@/components/common/PlayList'
 import {
-  selectCurrentTopListTitleInfo,
+  getTopListItem,
   selectCurrentTopList,
   selectCurrentTopListId,
-  getTopListItem
+  selectCurrentTopListTitleInfo,
 } from '@/store/slice/TopList'
-import { TopListMainWrapper } from './style'
 const TopListMain: React.FC = () => {
   const playCount = useAppSelector(selectCurrentTopListTitleInfo).data.playCount
   const currentTopListId = useAppSelector(selectCurrentTopListId).data

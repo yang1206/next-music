@@ -1,5 +1,5 @@
 import React, { memo } from 'react'
-type Params = {
+interface Params {
   position: string
   description: string
   onClick: () => void

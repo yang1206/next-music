@@ -1,9 +1,8 @@
 import React, { memo } from 'react'
 import Link from 'next/link'
-import { singerCategories } from '@/common/localData'
 import { ArtistCategoryWrapper } from './style'
+import { singerCategories } from '@/common/localData'
 const ArtistCategory: React.FC = () => {
-  const handleClick = () => {}
   return (
     <ArtistCategoryWrapper>
       {singerCategories.map((item, index) => {
@@ -15,7 +14,7 @@ const ArtistCategory: React.FC = () => {
                 return (
                   <span className="categoryItem" key={k}>
                     <Link href={j.url}>
-                      <a onClick={handleClick}>{j.name}</a>
+                      {j.name}
                     </Link>
                   </span>
                 )

@@ -1,7 +1,7 @@
 import React, { memo } from 'react'
-import { useAppDispatch, useAppSelector } from '@/hooks/useStore'
-import { getPlayList, selectCategory, changeCurrentCategory } from '@/store/slice/SongList'
 import { CategoryWrapper } from './style'
+import { useAppDispatch, useAppSelector } from '@/hooks/useStore'
+import { changeCurrentCategory, getPlayList, selectCategory } from '@/store/slice/SongList'
 const SongsCategory: React.FC = () => {
   const category = useAppSelector(selectCategory).data
   const dispatch = useAppDispatch()
@@ -20,13 +20,13 @@ const SongsCategory: React.FC = () => {
       <div className="category">
         {category.map((item, index) => {
           return (
-            <dl key={item.name} className={'item' + index}>
+            <dl key={item.name} className={`item${index}`}>
               <dt>
                 <i className="icon sprite_icon2"></i>
                 <span>{item.name}</span>
               </dt>
               <dd>
-                {item.subs.map(sItem => {
+                {item.subs.map((sItem) => {
                   return (
                     <div className="item" key={sItem.name}>
                       <span className="link" onClick={() => changeCategory(sItem.name)}>
