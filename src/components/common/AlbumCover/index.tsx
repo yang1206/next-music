@@ -1,9 +1,9 @@
 import React, { memo } from 'react'
 import { useRouter } from 'next/router'
-import { getSizeImage } from '@/utils/format'
-import { Recommend } from '@/store/interface/recommend'
 import { AlbumWrapper } from './style'
-//定义props类型
+import { getSizeImage } from '@/utils/format'
+import type { Recommend } from '@/store/interface/recommend'
+// 定义props类型
 interface Props {
   info: Recommend.NewAlbums
   size: string
@@ -18,7 +18,7 @@ const AlbumCover: React.FC<Props> = (props: any) => {
     router.push(`/album?id=${info.id}`)
   }
   return (
-    <AlbumWrapper style={{ width: width, height: size }}>
+    <AlbumWrapper style={{ width, height: size }}>
       <div className="album-image" onClick={() => toAlbumDetail()}>
         <img src={getSizeImage(info.picUrl, 180)} style={{ width: size, height: size }} alt=""></img>
         <a className="cover sprite_cover" style={{ backgroundPosition: `0  ${bgp}` }}>

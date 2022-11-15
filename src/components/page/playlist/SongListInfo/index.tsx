@@ -1,15 +1,15 @@
-import { useCallback, memo } from 'react'
-import { Skeleton, Tag } from 'antd'
-import { useAppSelector, useAppDispatch } from '@/hooks/useStore'
+import { memo, useCallback } from 'react'
+import { Skeleton, Tag, message } from 'antd'
+import { DeleteOutlined, HeartTwoTone } from '@ant-design/icons'
+import { SongListDetailWrapper } from './style'
+import { useAppDispatch, useAppSelector } from '@/hooks/useStore'
 import { getSizeImage, parseTime } from '@/utils/format'
 import { selectSongListDetailInfo } from '@/store/slice/SongList'
-import { selectLoginState, selectProfile, changeIsVisible } from '@/store/slice/Login'
-import { subscribeSongList, deleteSongList } from '@/api/user'
-import { message } from 'antd'
-import { HeartTwoTone, DeleteOutlined } from '@ant-design/icons'
+import { changeIsVisible, selectLoginState, selectProfile } from '@/store/slice/Login'
+import { deleteSongList, subscribeSongList } from '@/api/user'
+
 import RcmHeader from '@/components/common/RcmHeader'
 import PlayList from '@/components/common/PlayList'
-import { SongListDetailWrapper } from './style'
 const SongListInfo: React.FC = () => {
   const dispatch = useAppDispatch()
   const SongListDetail = useAppSelector(selectSongListDetailInfo).data.playList
@@ -18,11 +18,11 @@ const SongListInfo: React.FC = () => {
   const SongListUser = SongListDetail.userId
   const coverPicUrl = SongListDetail && SongListDetail.coverImgUrl
   const headerTitle = SongListDetail && SongListDetail.name
-  const avatarPic =
-    SongListDetail &&
-    SongListDetail.creator &&
-    SongListDetail.creator.avatarUrl &&
-    getSizeImage(SongListDetail.creator.avatarUrl, 35)
+  const avatarPic
+    = SongListDetail
+    && SongListDetail.creator
+    && SongListDetail.creator.avatarUrl
+    && getSizeImage(SongListDetail.creator.avatarUrl, 35)
   const avatarName = SongListDetail && SongListDetail.creator && SongListDetail.creator.nickname
   const avatarDatetime = SongListDetail && SongListDetail.createTime && parseTime(SongListDetail.createTime, '{y}-{m}-{d}')
   const labelsArr = SongListDetail && SongListDetail.tags
@@ -36,32 +36,38 @@ const SongListInfo: React.FC = () => {
     if (isLogin) {
       // 收藏歌单接口
       if (!subscribed) {
-        subscribeSongList({ id: SongListDetail.id, t: 0 }).then(res => {
-          if (res.code === 200) message.success('收藏成功')
-        })
-      } else {
-        subscribeSongList({ id: SongListDetail.id, t: 1 }).then(res => {
-          if (res.code === 200) message.success('取消收藏成功')
+        subscribeSongList({ id: SongListDetail.id, t: 0 }).then((res) => {
+          if (res.code === 200)
+            message.success('收藏成功')
         })
       }
-    } else {
+      else {
+        subscribeSongList({ id: SongListDetail.id, t: 1 }).then((res) => {
+          if (res.code === 200)
+            message.success('取消收藏成功')
+        })
+      }
+    }
+    else {
       dispatch(changeIsVisible(true))
     }
   }, [isLogin, dispatch, playlist])
-  //删除歌单
+  // 删除歌单
   const deleteList = useCallback(() => {
     if (isLogin) {
-      deleteSongList({ id: SongListDetail.id }).then(res => {
-        if (res.code === 200) message.success('删除成功')
+      deleteSongList({ id: SongListDetail.id }).then((res) => {
+        if (res.code === 200)
+          message.success('删除成功')
       })
-    } else {
+    }
+    else {
       dispatch(changeIsVisible(true))
     }
   }, [isLogin, dispatch, userID, SongListUser])
   const renderTags = () => {
     return (
-      labelsArr &&
-      labelsArr.map(value => {
+      labelsArr
+      && labelsArr.map((value) => {
         return (
           <Tag color="#de021d" key={value}>
             {value}
@@ -108,7 +114,7 @@ const SongListInfo: React.FC = () => {
             {userID === SongListUser && (
               <div
                 className="sprite_button favorite pointer"
-                style={{ marginBottom: '5px', marginLeft: '10px' }} /*onClick={() => collectSonglist()}*/
+                style={{ marginBottom: '5px', marginLeft: '10px' }} /* onClick={() => collectSonglist()} */
               >
                 <DeleteOutlined onClick={() => deleteList()} style={{ fontSize: '30px' }} />
               </div>

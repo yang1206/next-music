@@ -1,4 +1,4 @@
-import { useEffect, memo } from 'react'
+import { memo, useEffect } from 'react'
 import { useRouter } from 'next/router'
 import NavBar from '@/components/common/NavBar'
 import { useAppDispatch } from '@/hooks/useStore'

@@ -1,16 +1,30 @@
-import React, { useState, memo } from 'react'
-import { useAppDispatch, useAppSelector } from '@/hooks/useStore'
-import { changeIsVisible, selectIsVisible } from '@/store/slice/Login'
-import { Button, message, Modal } from 'antd'
+import React, { memo, useState } from 'react'
+import { Button, Modal, message } from 'antd'
 import { PhoneOutlined } from '@ant-design/icons'
 import LoginIcon from './components/LoginIcon'
 import LoginForm from './components/LoginForm'
 import { LoginWrapper, PhoneLoginModal } from './style'
+import { changeIsVisible, selectIsVisible } from '@/store/slice/Login'
+import { useAppDispatch, useAppSelector } from '@/hooks/useStore'
 const Login: React.FC = () => {
   const dispatch = useAppDispatch()
   const isVisible = useAppSelector(selectIsVisible).data
   const [disabled, setDisabled] = useState(true)
   const [loginState, setLoginState] = useState('default') // 默认状态显示
+  const handleLogin = (loginMode: string) => {
+    switch (loginMode) {
+      case 'phone':
+        setLoginState('phone')
+        break
+      case 'email':
+        setLoginState('email')
+        break
+      case 'register':
+        setLoginState('register')
+        break
+      default:
+    }
+  }
   const defaultWrapperContent = (
     <LoginWrapper>
       <div className="LoginLeft">
@@ -44,20 +58,6 @@ const Login: React.FC = () => {
     }, 100)
   }
 
-  const handleLogin = (loginMode: string) => {
-    switch (loginMode) {
-      case 'phone':
-        setLoginState('phone')
-        break
-      case 'email':
-        setLoginState('email')
-        break
-      case 'register':
-        setLoginState('register')
-        break
-      default:
-    }
-  }
   const phoneLogin = (loginState: string) => {
     return (
       <PhoneLoginModal>
@@ -74,18 +74,15 @@ const Login: React.FC = () => {
         <div
           style={{
             width: '100%',
-            cursor: 'move'
+            cursor: 'move',
           }}
           onMouseOver={() => {
-            if (disabled) {
+            if (disabled)
               setDisabled(false)
-            }
           }}
           onMouseOut={() => {
             setDisabled(true)
           }}
-          // fix eslintjsx-a11y/mouse-events-have-key-events
-          // https://github.com/jsx-eslint/eslint-plugin-jsx-a11y/blob/master/docs/rules/mouse-events-have-key-events.md
           onFocus={() => {}}
           onBlur={() => {}}
           // end

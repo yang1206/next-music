@@ -1,9 +1,9 @@
 import React, { memo } from 'react'
-import { useAppSelector } from '@/hooks/useStore'
-import { selectCurrentTopListTitleInfo } from '@/store/slice/TopList'
-import { getSizeImage, formatMonthDay } from '@/utils/format'
 import { FieldTimeOutlined } from '@ant-design/icons'
 import { TopListTitleWrapper } from './style'
+import { useAppSelector } from '@/hooks/useStore'
+import { selectCurrentTopListTitleInfo } from '@/store/slice/TopList'
+import { formatMonthDay, getSizeImage } from '@/utils/format'
 const TopListTitle = () => {
   const titleInfo = useAppSelector(selectCurrentTopListTitleInfo).data
   const picUrl = titleInfo && titleInfo.coverImgUrl

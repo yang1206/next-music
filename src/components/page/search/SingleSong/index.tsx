@@ -1,11 +1,11 @@
 import { memo } from 'react'
 import Link from 'next/link'
 import { PlayCircleOutlined } from '@ant-design/icons'
+import { SingleSongItemWrapper } from './style'
 import { useAppDispatch, useAppSelector } from '@/hooks/useStore'
 import { useAddPlaylist } from '@/hooks/useAddPlaylist'
-import { selectPlayList } from '@/store/slice/Player'
-import { getSong } from '@/store/slice/Player'
-import { SingleSongItemWrapper } from './style'
+import { getSong, selectPlayList } from '@/store/slice/Player'
+
 interface Props {
   songId: number
   songName: string
@@ -21,7 +21,6 @@ const SingleSong: React.FC<Props> = ({ songId, songName, singer, album, duration
   const playMusic = () => {
     dispatch(getSong({ id: songId, isPlay: true }))
   }
-  const handleClick = () => {}
   const addPlaylist = useAddPlaylist(playList)
   return (
     <SingleSongItemWrapper>
@@ -31,11 +30,12 @@ const SingleSong: React.FC<Props> = ({ songId, songName, singer, album, duration
         <button className="sprite_icon2 btn addto" onClick={e => addPlaylist(e, songId)}></button>
       </div>
       <Link href="/discover/song" className="singer" onClick={() => playMusic()}>
-        <a onClick={handleClick}>{singer}</a>
+        {singer}
       </Link>
       <div className="text-nowrap album">《{album}》</div>
       <div className="text-nowrap duration">{duration}</div>
     </SingleSongItemWrapper>
   )
 }
+
 export default memo(SingleSong)

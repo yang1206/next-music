@@ -1,16 +1,16 @@
-import React, { useState, memo } from 'react'
-import { Form, Input, Button, Checkbox, message } from 'antd'
-import { getParseLoginState, getMatchReg } from '@/utils/format'
+import React, { memo, useState } from 'react'
+import { Button, Checkbox, Form, Input, message } from 'antd'
+import { LoginFrom } from './style'
+import { getMatchReg, getParseLoginState } from '@/utils/format'
 import { useAppDispatch } from '@/hooks/useStore'
 import { getLoginProfileInfo } from '@/store/slice/Login'
-import { sendRegisterCode, sendRegister } from '@/api/login'
-import { LoginFrom } from './style'
+import { sendRegister, sendRegisterCode } from '@/api/login'
 const layout = {
   labelCol: { span: 6 },
-  wrapperCol: { span: 16 }
+  wrapperCol: { span: 16 },
 }
 const tailLayout = {
-  wrapperCol: { span: 30 }
+  wrapperCol: { span: 30 },
 }
 
 const LoginForm: React.FC<{ loginState: string }> = (props: { loginState: string }) => {
@@ -30,20 +30,20 @@ const LoginForm: React.FC<{ loginState: string }> = (props: { loginState: string
 
   const onFinish = ({ username, password }) => {
     // 先固定写死: 手机号登陆
-    dispatch(getLoginProfileInfo({ username: username, password: password, tip: true }))
+    dispatch(getLoginProfileInfo({ username, password, tip: true }))
   }
 
   // 注册
-  const onRegisterFinish = value => {
+  const onRegisterFinish = (value) => {
     // const { phone, password, code, nickname } = value
-    sendRegister(value).then(res => {
-      console.log(res)
-      if (res.code === 200) message.success('注册成功')
+    sendRegister(value).then((res) => {
+      if (res.code === 200)
+        message.success('注册成功')
       else message.warn(res.message)
     })
   }
-  const onFinishFailed = errorInfo => {
-    console.log('Failed:', errorInfo)
+  const onFinishFailed = (errorInfo) => {
+    return errorInfo
   }
   const handleSendCode = () => {
     // 60秒延迟定时器
@@ -59,9 +59,10 @@ const LoginForm: React.FC<{ loginState: string }> = (props: { loginState: string
         }
       }, 1000)
       // 发送验证码
-      !isSendState &&
-        sendRegisterCode(phone).then(res => {
-          if (res.code === 200) message.success('发送成功')
+      !isSendState
+        && sendRegisterCode(phone).then((res) => {
+          if (res.code === 200)
+            message.success('发送成功')
           else message.warn('发送失败, 请60秒后发送验证码')
         })
     }
@@ -72,7 +73,7 @@ const LoginForm: React.FC<{ loginState: string }> = (props: { loginState: string
       <Form
         id="login"
         style={{
-          display: loginState !== 'register' ? 'block' : 'none'
+          display: loginState !== 'register' ? 'block' : 'none',
         }}
         {...layout}
         name="basic"
@@ -87,9 +88,9 @@ const LoginForm: React.FC<{ loginState: string }> = (props: { loginState: string
           rules={[
             {
               pattern: mathchReg,
-              message: `请输入正确的${parseLoginModeText}`
+              message: `请输入正确的${parseLoginModeText}`,
             },
-            { required: true, message: '请输入你的账户' }
+            { required: true, message: '请输入你的账户' },
           ]}
         >
           <Input autoFocus autoComplete="true" />
@@ -101,7 +102,7 @@ const LoginForm: React.FC<{ loginState: string }> = (props: { loginState: string
           name="password"
           rules={[
             { pattern: pwdReg, message: '密码最短6位' },
-            { required: true, message: '请输入你的密码!' }
+            { required: true, message: '请输入你的密码!' },
           ]}
         >
           <Input.Password autoComplete="true" />
@@ -121,7 +122,7 @@ const LoginForm: React.FC<{ loginState: string }> = (props: { loginState: string
       <Form
         id="register"
         style={{
-          display: loginState === 'register' ? 'block' : 'none'
+          display: loginState === 'register' ? 'block' : 'none',
         }}
         {...layout}
         name="basic"
@@ -134,9 +135,9 @@ const LoginForm: React.FC<{ loginState: string }> = (props: { loginState: string
           rules={[
             {
               pattern: mathchPhoneReg,
-              message: `请输入正确的手机号`
+              message: '请输入正确的手机号',
             },
-            { required: true, message: '请输入你的手机号' }
+            { required: true, message: '请输入你的手机号' },
           ]}
         >
           <Input
@@ -158,7 +159,7 @@ const LoginForm: React.FC<{ loginState: string }> = (props: { loginState: string
         </Form.Item>
         <Form.Item>
           <div className="register" onClick={() => handleSendCode()}>
-            {isSendState ? second + 's' : '发送验证码'}
+            {isSendState ? `${second}s` : '发送验证码'}
           </div>
         </Form.Item>
         <Form.Item
@@ -168,7 +169,7 @@ const LoginForm: React.FC<{ loginState: string }> = (props: { loginState: string
           name="code"
           rules={[
             { pattern: codeReg, message: '验证码最短4位' },
-            { required: true, message: '请输入你的验证码' }
+            { required: true, message: '请输入你的验证码' },
           ]}
         >
           <Input disabled={!isSendState} />

@@ -1,10 +1,10 @@
 import React, { memo } from 'react'
 import Link from 'next/link'
 import { Collapse } from 'antd'
-import { selectSong, selectLyric } from '@/store/slice/Player'
-import { useAppSelector } from '@/hooks/useStore'
-import { getSizeImage, getPlayUrl } from '@/utils/format'
 import { SongInfoWrapper } from './style'
+import { selectLyric, selectSong } from '@/store/slice/Player'
+import { useAppSelector } from '@/hooks/useStore'
+import { getPlayUrl, getSizeImage } from '@/utils/format'
 const SongInfo: React.FC = () => {
   const currentSong = useAppSelector(selectSong).data
   const LyricList = useAppSelector(selectLyric).data
@@ -15,8 +15,7 @@ const SongInfo: React.FC = () => {
   const singerId = currentSong.ar && currentSong.ar[0]?.id
   const album = currentSong.al && currentSong.al?.name
   const albumId = currentSong.al && currentSong.al?.id
-  const playMusic = () => {}
-  const handleClick = () => {}
+  const playMusic = () => { }
   return (
     <SongInfoWrapper>
       <div className="album">
@@ -32,13 +31,13 @@ const SongInfo: React.FC = () => {
         <div className="singer">
           <span>歌手：</span>
           <Link href={{ pathname: '/artist', query: { id: singerId } }}>
-            <a onClick={handleClick}>{singer}</a>
+            {singer}
           </Link>
         </div>
         <div className="settle-album">
           <span>所属专辑：</span>
           <Link href={{ pathname: '/album', query: { id: albumId } }}>
-            <a onClick={handleClick}>{album}</a>
+            {album}
           </Link>
         </div>
         <div className="controls">
@@ -71,9 +70,9 @@ const SongInfo: React.FC = () => {
           </div>
         </div>
         <Collapse>
-          <Panel header={`歌词展示`} key={''}>
-            {LyricList &&
-              LyricList.map((item, index) => {
+          <Panel header={'歌词展示'} key={''}>
+            {LyricList
+              && LyricList.map((item, index) => {
                 return (
                   <div key={index} className="lyric-item">
                     {item.content}

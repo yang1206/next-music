@@ -1,15 +1,15 @@
 import React, { memo } from 'react'
-import { getSizeImage } from '@/utils/format'
-import { Recommend } from '@/store/interface/recommend'
-import { getSong /*changeCurrentSong, changePlayList, changeCurrentIndex*/ } from '@/store/slice/Player'
-import { useAppDispatch, useAppSelector } from '@/hooks/useStore'
-import { selectPlayList } from '@/store/slice/Player'
-import { useAddPlaylist } from '@/hooks/useAddPlaylist'
 import { TopRankingWrapper } from './style'
+import { getSizeImage } from '@/utils/format'
+import type { Recommend } from '@/store/interface/recommend'
+import { getSong /* changeCurrentSong, changePlayList, changeCurrentIndex */, selectPlayList } from '@/store/slice/Player'
+import { useAppDispatch, useAppSelector } from '@/hooks/useStore'
+
+import { useAddPlaylist } from '@/hooks/useAddPlaylist'
 interface Props {
   info: Recommend.topItem
 }
-const TopRanking: React.FC<Props> = props => {
+const TopRanking: React.FC<Props> = (props) => {
   const { info } = props
   const dispatch = useAppDispatch()
   const playList = useAppSelector(selectPlayList).data

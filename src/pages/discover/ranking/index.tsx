@@ -1,7 +1,7 @@
-import React, { useEffect, memo } from 'react'
+import React, { memo, useEffect } from 'react'
 import { useRouter } from 'next/router'
 import { useAppDispatch, useAppSelector } from '@/hooks/useStore'
-import { selectTopListInfo, selectCurrentTopListId, getTopListInfo, getTopListTitleInfo } from '@/store/slice/TopList'
+import { getTopListInfo, getTopListTitleInfo, selectCurrentTopListId, selectTopListInfo } from '@/store/slice/TopList'
 import TopListTitle from '@/components/page/discover/ranking/Title'
 import TopListMain from '@/components/page/discover/ranking/Main'
 import TopListInfo from '@/components/page/discover/ranking/TopList'
@@ -20,7 +20,7 @@ const Ranking: React.FC = () => {
   useEffect(() => {
     // 派发榜单标题信息Action
     let { id }: any = router.query
-    id = id ? id : currentTopListId
+    id = id || currentTopListId
     dispatch(getTopListTitleInfo(id))
   }, [currentTopListId, dispatch])
   return (

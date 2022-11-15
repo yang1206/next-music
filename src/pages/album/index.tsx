@@ -1,4 +1,4 @@
-import { useEffect, useState, memo } from 'react'
+import { memo, useEffect, useState } from 'react'
 import { useRouter } from 'next/router'
 import NavBar from '@/components/common/NavBar'
 import { getAlbumDetail } from '@/api/album'
@@ -9,7 +9,7 @@ const Album: React.FC = () => {
   const router = useRouter()
   const { id }: any = router.query
   useEffect(() => {
-    getAlbumDetail(id).then(res => {
+    getAlbumDetail(id).then((res) => {
       setAlbum(res)
     })
   }, [id, router])

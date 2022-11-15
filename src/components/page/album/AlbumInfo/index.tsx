@@ -1,9 +1,9 @@
 import { memo } from 'react'
 import { Skeleton } from 'antd'
+import { AlbumDetailWrapper } from './style'
 import { getSizeImage, parseTime } from '@/utils/format'
 import RcmHeader from '@/components/common/RcmHeader'
 import PlayList from '@/components/common/PlayList'
-import { AlbumDetailWrapper } from './style'
 interface Props {
   albumDetail: any
 }

@@ -1,10 +1,10 @@
-import React, { useEffect, memo } from 'react'
-import { useAppDispatch, useAppSelector } from '@/hooks/useStore'
-import { selectNewAlbums, getNewAlbums } from '@/store/slice/recommend'
+import React, { memo, useEffect } from 'react'
 import { Skeleton } from 'antd'
+import { HotAlbumWrapper } from './style'
+import { useAppDispatch, useAppSelector } from '@/hooks/useStore'
+import { getNewAlbums, selectNewAlbums } from '@/store/slice/recommend'
 import AlbumCover from '@/components/common/AlbumCover'
 import RcmHeader from '@/components/common/RcmHeader'
-import { HotAlbumWrapper } from './style'
 const HotAlbum: React.FC = () => {
   const dispatch = useAppDispatch()
   const hotNewAlbums = useAppSelector(selectNewAlbums).data.slice(0, 10)
@@ -14,14 +14,16 @@ const HotAlbum: React.FC = () => {
   const CoverProps = {
     width: '150px',
     size: '130px',
-    bgp: '-845px'
+    bgp: '-845px',
   }
   return (
     <HotAlbumWrapper>
       <RcmHeader title={'热门新碟'} right={<></>} />
-      {!hotNewAlbums.length ? (
+      {!hotNewAlbums.length
+        ? (
         <Skeleton active />
-      ) : (
+          )
+        : (
         <div className="HotAlbum-list">
           {hotNewAlbums.map((item, index: number) => {
             return (
@@ -31,7 +33,7 @@ const HotAlbum: React.FC = () => {
             )
           })}
         </div>
-      )}
+          )}
     </HotAlbumWrapper>
   )
 }

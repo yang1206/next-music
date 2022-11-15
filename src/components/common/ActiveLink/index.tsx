@@ -4,7 +4,7 @@ function ActiveLink({ children, href }) {
   const router = useRouter()
   const className = router.asPath === href ? 'active' : ''
 
-  const handleClick = e => {
+  const handleClick = (e) => {
     e.preventDefault()
     router.push(href)
   }
