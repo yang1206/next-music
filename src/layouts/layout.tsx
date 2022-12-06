@@ -1,3 +1,4 @@
+'use client'
 import { useEffect } from 'react'
 import { BackTop, Layout } from 'antd'
 // import { TransitionGroup, CSSTransition } from 'react-transition-group'
