@@ -1,3 +1,4 @@
+'use client'
 import React, { memo, useCallback, useEffect, useRef, useState } from 'react'
 import { useRouter } from 'next/router'
 import type { InputRef } from 'antd'

@@ -4,7 +4,7 @@ const { createProxyMiddleware } = require('http-proxy-middleware')
 
 const devProxy = {
   '/app': {
-    target: 'https://halocn.top/', // 端口自己配置合适的
+    target: 'http://localhost:3001', // 端口自己配置合适的
     pathRewrite: {
       '^/app': '/',
     },
@@ -36,7 +36,6 @@ app
     server.listen(port, (err) => {
       if (err)
         throw err
-
       console.log(`> Ready on http://localhost:${port}`)
     })
   })
