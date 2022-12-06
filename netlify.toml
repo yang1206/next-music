@@ -1,4 +1,4 @@
 [[redirects]]
-  from = "/api/*"
+  from = "/app/*"
   to = "https://halocn.top/:splat"
   force = true
