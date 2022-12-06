@@ -42,26 +42,26 @@ export const playerSlice = createSlice({
   name: 'player',
   initialState,
   reducers: {
-    changeCurrentSong: (state, { payload }: any) => {
+    changeCurrentSong: (state, { payload }) => {
       state.currentSongData = payload
     },
-    changeCurrentIndex: (state, { payload }: any) => {
+    changeCurrentIndex: (state, { payload }) => {
       setCurrentSongIndex(payload)
       state.currentSongIndex = payload
     },
-    changePlayList: (state, { payload }: any) => {
+    changePlayList: (state, { payload }) => {
       state.playList = payload
     },
-    changeSequence: (state, { payload }: any) => {
+    changeSequence: (state, { payload }) => {
       state.sequence = payload
     },
-    changeCurrentLyricIndex: (state, { payload }: any) => {
+    changeCurrentLyricIndex: (state, { payload }) => {
       state.currentLyricIndex = payload
     },
-    changeCurrentLyricList: (state, { payload }: any) => {
+    changeCurrentLyricList: (state, { payload }) => {
       state.lyricList = payload
     },
-    changePlayListCount: (state, { payload }: any) => {
+    changePlayListCount: (state, { payload }) => {
       state.playListCount = payload
     },
     changeShowLyrics: (state, { payload }) => {

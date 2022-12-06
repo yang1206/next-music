@@ -21,7 +21,7 @@ export const searchSlice = createSlice({
   name: 'search',
   initialState,
   reducers: {
-    changeFocusState: (state, { payload }: any) => {
+    changeFocusState: (state, { payload }) => {
       state.focusState = payload
     },
   },
