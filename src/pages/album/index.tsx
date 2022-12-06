@@ -1,27 +1,25 @@
-import { memo, useEffect, useState } from 'react'
-import { useRouter } from 'next/router'
 import NavBar from '@/components/common/NavBar'
-import { getAlbumDetail } from '@/api/album'
+// import { getAlbumDetail } from '@/api/album'
 import AlbumInfo from '@/components/page/album/AlbumInfo'
 import { AlbumDetailWrapper } from '@/styles/page/album'
-const Album: React.FC = () => {
-  const [albumDetail, setAlbum] = useState()
-  const router = useRouter()
-  const { id }: any = router.query
-  useEffect(() => {
-    getAlbumDetail(id).then((res) => {
-      setAlbum(res)
-    })
-  }, [id, router])
+
+export async function getServerSideProps(context) {
+  const { id } = context.query
+  const res = await fetch(`https://halocn.top/album?id=${id}`)
+  const data = await res.json()
+  return {
+    props: { data }, // will be passed to the page component as props
+  }
+}
+
+export default function Album({ data }) {
   return (
     <>
       <NavBar />
       <AlbumDetailWrapper>
         <div className="AlbumDetailContent">
-          <AlbumInfo albumDetail={albumDetail} />
+          <AlbumInfo albumDetail={data} />
         </div>
       </AlbumDetailWrapper>
-    </>
-  )
+    </>)
 }
-export default memo(Album)

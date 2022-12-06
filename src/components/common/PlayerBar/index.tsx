@@ -215,14 +215,14 @@ const PlayBar: React.FC = () => {
         </div>
         <div className="PlayInfo">
           <div className="image">
-            <Link href="/song" passHref onClick={handleClick}>
+            <Link href={`/song/${currentSong.id}`} passHref onClick={handleClick}>
               {currentSong && <img src={getSizeImage(currentSong?.al.picUrl, 35)} alt="" />}
             </Link>
           </div>
           <div className="info">
             <div className="song">
               <span className="song-name">
-                <Link href="/song" passHref onClick={handleClick}>
+                <Link href={`/song/${currentSong.id}`} passHref onClick={handleClick}>
                   {currentSong?.name}
                 </Link>
               </span>

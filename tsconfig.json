@@ -1,7 +1,11 @@
 {
   "compilerOptions": {
     "target": "es5",
-    "lib": ["dom", "dom.iterable", "esnext"],
+    "lib": [
+      "dom",
+      "dom.iterable",
+      "esnext"
+    ],
     "allowJs": true,
     "skipLibCheck": true,
     "strict": false,
@@ -17,12 +21,26 @@
     "baseUrl": "./",
     // 模块名到基于 baseUrl的路径映射的列表。
     "paths": {
-      "@": ["src"],
-      "@/*": ["src/*"],
-      "public": ["public"]
+      "@": [
+        "src"
+      ],
+      "@/*": [
+        "src/*"
+      ],
+      "public": [
+        "public"
+      ]
     },
     "isolatedModules": true
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
-  "exclude": ["node_modules", ".next", "dist"]
+  "include": [
+    "next-env.d.ts",
+    "**/*.ts",
+    "**/*.tsx",
+  ],
+  "exclude": [
+    "node_modules",
+    ".next",
+    "dist"
+  ]
 }

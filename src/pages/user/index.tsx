@@ -1,4 +1,4 @@
-import React, { memo, useCallback, useEffect, useState } from 'react'
+import React, { useCallback, useEffect, useState } from 'react'
 import { useRouter } from 'next/router'
 import Modal from 'antd/lib/modal/Modal'
 import { ManOutlined, PlayCircleOutlined, WomanOutlined } from '@ant-design/icons'
@@ -113,11 +113,11 @@ const User: React.FC = () => {
             <div className="gender-icon">
               {gender === 'man'
                 ? (
-                <ManOutlined className="gender-icon man" />
-                  )
+                  <ManOutlined className="gender-icon man" />
+                )
                 : (
-                <WomanOutlined className="gender-icon" color="#e60026" />
-                  )}
+                  <WomanOutlined className="gender-icon" color="#e60026" />
+                )}
             </div>
           </div>
           <div className="dynamic-wrap flex">{renderDynamicList()}</div>
@@ -157,4 +157,4 @@ const User: React.FC = () => {
     </ProfileWrapper>
   )
 }
-export default memo(User)
+export default User
