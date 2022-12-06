@@ -1,4 +1,4 @@
-import React, { memo, useEffect, useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { getHotComment, selectSong } from '@/store/slice/Player'
 import { useAppDispatch, useAppSelector } from '@/hooks/useStore'
 import { formatMinuteSecond } from '@/utils/format'
@@ -7,6 +7,7 @@ import SongInfo from '@/components/page/song/components/SongInfo'
 import SongItem from '@/components/page/song/components/SongItem'
 import SongComments from '@/components/page/song/components/SongComments'
 import { PlayerWrapper } from '@/styles/page/song'
+
 const Player: React.FC = () => {
   const dispatch = useAppDispatch()
   const [simiList, setSimiList] = useState([])
@@ -46,4 +47,4 @@ const Player: React.FC = () => {
     </PlayerWrapper>
   )
 }
-export default memo(Player)
+export default Player

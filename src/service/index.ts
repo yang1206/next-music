@@ -16,17 +16,19 @@ interface HttpRequestConfig<T, R> extends RequestConfig<IResponse<R>> {
 }
 const request = new Request({
   baseURL: process.env.NEXT_BASEURL,
+  // baseURL: 'https://halocn.top/',
   timeout: 1000 * 60 * 4,
   withCredentials: true,
   interceptors: {
     // 请求拦截器
     requestInterceptors: (config: AxiosRequestConfig) => {
-      NProgress.start()
+      // NProgress.start()
       return config
     },
     // 响应拦截器
     responseInterceptors: (result: AxiosResponse) => {
       NProgress.done()
+
       return result
     },
     responseInterceptorsCatch: (error) => {

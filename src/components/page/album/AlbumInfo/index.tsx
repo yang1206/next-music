@@ -1,4 +1,3 @@
-import { memo } from 'react'
 import { Skeleton } from 'antd'
 import { AlbumDetailWrapper } from './style'
 import { getSizeImage, parseTime } from '@/utils/format'
@@ -7,17 +6,17 @@ import PlayList from '@/components/common/PlayList'
 interface Props {
   albumDetail: any
 }
-const AlbumInfo: React.FC<Props> = (props: Props) => {
+const AlbumInfo = (props: Props) => {
   const { albumDetail } = props
-  const coverPicUrl = albumDetail && albumDetail.album.blurPicUrl
-  const headerTitle = albumDetail && albumDetail.album.name
-  const artistName = albumDetail && albumDetail.album.artist && albumDetail.album.artist.name
-  const ReleaseDate = albumDetail && albumDetail.album.publishTime && parseTime(albumDetail.album.publishTime, '{y}-{m}-{d}')
-  const description = albumDetail && albumDetail.album.description
-  const shareCount = albumDetail && albumDetail.album.info.shareCount
-  const commentCount = albumDetail && albumDetail.album.info.commentCount
-  const company = albumDetail && albumDetail.album.company
-  const playlist = albumDetail && albumDetail.songs
+  const coverPicUrl = albumDetail && albumDetail?.album?.blurPicUrl
+  const headerTitle = albumDetail && albumDetail?.album?.name
+  const artistName = albumDetail && albumDetail?.album?.artist && albumDetail?.album.artist.name
+  const ReleaseDate = albumDetail && albumDetail?.album?.publishTime && parseTime(albumDetail.album.publishTime, '{y}-{m}-{d}')
+  const description = albumDetail && albumDetail?.album?.description
+  const shareCount = albumDetail && albumDetail?.album?.info?.shareCount
+  const commentCount = albumDetail && albumDetail?.album?.info?.commentCount
+  const company = albumDetail && albumDetail?.album?.company
+  const playlist = albumDetail && albumDetail?.songs
   return (
     <AlbumDetailWrapper>
       {!albumDetail && <Skeleton active />}
@@ -80,4 +79,4 @@ const AlbumInfo: React.FC<Props> = (props: Props) => {
     </AlbumDetailWrapper>
   )
 }
-export default memo(AlbumInfo)
+export default AlbumInfo

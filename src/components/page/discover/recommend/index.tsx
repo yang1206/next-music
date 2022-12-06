@@ -1,10 +1,9 @@
-import React, { memo } from 'react'
 import Banner from './components/banner'
 import HotRecommend from './components/hotRecommend'
 import NewAlbum from './components/newAlbum'
 import Ranking from './components/ranking'
 import { RecommendWarper } from './style'
-const Recommend: React.FC = () => {
+const Recommend = () => {
   return (
     <RecommendWarper>
       <Banner />
@@ -18,4 +17,4 @@ const Recommend: React.FC = () => {
     </RecommendWarper>
   )
 }
-export default memo(Recommend)
+export default Recommend

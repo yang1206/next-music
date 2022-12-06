@@ -1,4 +1,4 @@
-import React, { memo, useCallback, useEffect, useRef, useState } from 'react'
+import React, { useCallback, useEffect, useRef, useState } from 'react'
 import { Carousel } from 'antd'
 import type { CarouselRef } from 'antd/lib/carousel'
 import { LeftOutlined, RightOutlined } from '@ant-design/icons'
@@ -53,4 +53,4 @@ const Banner: React.FC = () => {
     </BannerWrapper>
   )
 }
-export default memo(Banner)
+export default Banner
