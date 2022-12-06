@@ -1,6 +1,6 @@
+import { discoverMenu } from 'src/common/localData'
 import ActiveLink from '../ActiveLink'
 import { NavBarWrapper } from './style'
-import { discoverMenu } from '@/common/localData'
 const NavBar = () => {
   return (
     <NavBarWrapper className="wrap-v1">

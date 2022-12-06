@@ -31,7 +31,12 @@
         "public"
       ]
     },
-    "isolatedModules": true
+    "isolatedModules": true,
+    "plugins": [
+      {
+        "name": "next"
+      }
+    ]
   },
   "include": [
     "next-env.d.ts",
@@ -39,6 +44,7 @@
     "**/*.tsx",
     "**/*.js",
     "**/*.jsx",
+    ".next/types/**/*.ts"
   ],
   "exclude": [
     "node_modules",

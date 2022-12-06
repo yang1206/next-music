@@ -1,6 +1,6 @@
 import CryptoJS from 'crypto-js'
 import { message } from 'antd'
-import { secretKey } from '@/config/token'
+import { secretKey } from 'src/config/token'
 
 /**
  * 加密信息,本地存储

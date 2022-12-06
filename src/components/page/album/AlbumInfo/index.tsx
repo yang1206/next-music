@@ -1,8 +1,8 @@
 import { Skeleton } from 'antd'
+import { getSizeImage, parseTime } from 'src/utils/format'
+import RcmHeader from 'src/components/common/RcmHeader'
+import PlayList from 'src/components/common/PlayList'
 import { AlbumDetailWrapper } from './style'
-import { getSizeImage, parseTime } from '@/utils/format'
-import RcmHeader from '@/components/common/RcmHeader'
-import PlayList from '@/components/common/PlayList'
 interface Props {
   albumDetail: any
 }

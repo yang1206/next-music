@@ -1,5 +1,5 @@
-import request from '@/service'
-import type { Recommend } from '@/api/interface'
+import request from 'src/service'
+import type { Recommend } from 'src/api/interface'
 export const getBannerList = (data?: any) => {
   return request({
     url: '/app/banner',

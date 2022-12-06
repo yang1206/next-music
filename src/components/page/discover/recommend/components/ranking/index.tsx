@@ -1,9 +1,9 @@
 import React, { memo, useEffect } from 'react'
+import RcmHeader from 'src/components/common/RcmHeader'
+import TopRanking from 'src/components/common/TopRanking'
+import { useAppDispatch, useAppSelector } from 'src/hooks/useStore'
+import { getTopLists, selectTopList } from 'src/store/slice/recommend'
 import { RankingWrapper } from './style'
-import RcmHeader from '@/components/common/RcmHeader'
-import TopRanking from '@/components/common/TopRanking'
-import { useAppDispatch, useAppSelector } from '@/hooks/useStore'
-import { getTopLists, selectTopList } from '@/store/slice/recommend'
 const NewAlbum: React.FC = () => {
   const props = {
     title: '榜单',

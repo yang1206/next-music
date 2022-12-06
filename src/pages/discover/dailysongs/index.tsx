@@ -1,14 +1,14 @@
 import React, { memo, useCallback, useEffect, useState } from 'react'
 import { useRouter } from 'next/router'
-import { useAppDispatch, useAppSelector } from '@/hooks/useStore'
-import { changeIsVisible, selectLoginState } from '@/store/slice/Login'
-import { getRecommendsongs } from '@/api/recommend'
-import DateHeader from '@/components/page/discover/dailysongs/Date'
-import RcmHeader from '@/components/common/RcmHeader'
-import Authentication from '@/components/common/Authentication'
-import PlayList from '@/components/common/PlayList'
-import NavBar from '@/components/common/NavBar'
-import { DayRecommendContent } from '@/styles/page/discover/dailysongs'
+import { useAppDispatch, useAppSelector } from 'src/hooks/useStore'
+import { changeIsVisible, selectLoginState } from 'src/store/slice/Login'
+import { getRecommendsongs } from 'src/api/recommend'
+import DateHeader from 'src/components/page/discover/dailysongs/Date'
+import RcmHeader from 'src/components/common/RcmHeader'
+import Authentication from 'src/components/common/Authentication'
+import PlayList from 'src/components/common/PlayList'
+import NavBar from 'src/components/common/NavBar'
+import { DayRecommendContent } from 'src/styles/page/discover/dailysongs'
 const DailySongs: React.FC = () => {
   const [recommendPlaylist, setRecommendPlaylist] = useState([])
   const router = useRouter()

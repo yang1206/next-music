@@ -1,8 +1,8 @@
 import React, { memo } from 'react'
 import { useRouter } from 'next/router'
+import { getCount, getSizeImage } from 'src/utils/format'
+import type { Recommend } from 'src/store/interface/recommend'
 import { SongCoverWrapper } from './style'
-import { getCount, getSizeImage } from '@/utils/format'
-import type { Recommend } from '@/store/interface/recommend'
 interface Props {
   info: Recommend.perSonalizeder
   key?: number

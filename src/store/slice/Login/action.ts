@@ -1,10 +1,11 @@
 import { createAsyncThunk } from '@reduxjs/toolkit'
 import md5 from 'js-md5'
 import { message } from 'antd'
-import { changeCookie, changeIsVisible, changeLoginState, changeProfileInfo, changeToken } from '@/store/slice/Login'
-import { gotoPhoneLogin } from '@/api/login'
-import loginInfo from '@/config/token'
-import { getLoginInfo, setLoginInfo } from '@/utils/secretKey'
+import type { AppDispatch, RootState } from 'src/store'
+import { changeCookie, changeIsVisible, changeLoginState, changeProfileInfo, changeToken } from 'src/store/slice/Login'
+import { gotoPhoneLogin } from 'src/api/login'
+import loginInfo from 'src/config/token'
+import { getLoginInfo, setLoginInfo } from 'src/utils/secretKey'
 
 // 请求歌曲详细信息
 interface LoginParam {
@@ -16,8 +17,8 @@ const getLoginProfileInfo = createAsyncThunk<
   any,
   LoginParam,
   {
-    dispatch: any
-    state: any
+    dispatch: AppDispatch
+    state: RootState
   }
 >('login/getLoginProfileInfo', async ({ username, password, tip }: LoginParam, { dispatch }) => {
   gotoPhoneLogin({ phone: username, md5_password: md5(password) }).then((res) => {

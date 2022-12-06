@@ -1,4 +1,4 @@
-import request from '@/service'
+import request from 'src/service'
 // 歌手详细信息
 export const getArtists = (id: number | string) => {
   return request({

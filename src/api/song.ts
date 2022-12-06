@@ -1,5 +1,5 @@
+import request from 'src/service'
 import type { Song } from './interface'
-import request from '@/service'
 export const getSongDetail = (data: Song.SongDetail) => {
   return request({
     url: '/app/song/detail',

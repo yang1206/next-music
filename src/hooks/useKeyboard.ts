@@ -1,5 +1,5 @@
-import { useAppDispatch } from '@/hooks/useStore'
-import { changeFocusState } from '@/store/slice/Search'
+import { useAppDispatch } from 'src/hooks/useStore'
+import { changeFocusState } from 'src/store/slice/Search'
 
 /**
  * 调用该函数,返回一个函数,改变搜索下拉框的状态(默认为false)

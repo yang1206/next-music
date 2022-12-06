@@ -2,9 +2,9 @@ import React, { useCallback, useEffect, useRef, useState } from 'react'
 import { Carousel } from 'antd'
 import type { CarouselRef } from 'antd/lib/carousel'
 import { LeftOutlined, RightOutlined } from '@ant-design/icons'
+import { useAppDispatch, useAppSelector } from 'src/hooks/useStore'
+import { getBanner, selectBanners } from 'src/store/slice/recommend'
 import { BannerWrapper } from './style'
-import { useAppDispatch, useAppSelector } from '@/hooks/useStore'
-import { getBanner, selectBanners } from '@/store/slice/recommend'
 
 const Banner: React.FC = () => {
   const [currentIndex, setCurrentIndex] = useState(0)

@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from 'react'
-import { getHotComment, selectSong } from '@/store/slice/Player'
-import { useAppDispatch, useAppSelector } from '@/hooks/useStore'
-import { formatMinuteSecond } from '@/utils/format'
-import { getSongSimi } from '@/api/song'
-import SongInfo from '@/components/page/song/components/SongInfo'
-import SongItem from '@/components/page/song/components/SongItem'
-import SongComments from '@/components/page/song/components/SongComments'
-import { PlayerWrapper } from '@/styles/page/song'
+import { getHotComment, selectSong } from 'src/store/slice/Player'
+import { useAppDispatch, useAppSelector } from 'src/hooks/useStore'
+import { formatMinuteSecond } from 'src/utils/format'
+import { getSongSimi } from 'src/api/song'
+import SongInfo from 'src/components/page/song/components/SongInfo'
+import SongItem from 'src/components/page/song/components/SongItem'
+import SongComments from 'src/components/page/song/components/SongComments'
+import { PlayerWrapper } from 'src/styles/page/song'
 
 const Player: React.FC = () => {
   const dispatch = useAppDispatch()

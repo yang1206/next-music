@@ -1,5 +1,5 @@
 import { createAsyncThunk } from '@reduxjs/toolkit'
-import { getBannerList, getNewestAlbums, getPersonalizedList, getPlaylist } from '@/api/recommend'
+import { getBannerList, getNewestAlbums, getPersonalizedList, getPlaylist } from 'src/api/recommend'
 // 异步Action
 export const getBanner = createAsyncThunk('recommend/getBanner', async () => {
   const data = await getBannerList().then((res) => {

@@ -1,5 +1,5 @@
 import React, { memo } from 'react'
-import { MineWrapper } from '@/styles/page/mine'
+import { MineWrapper } from 'src/styles/page/mine'
 const Mine: React.FC = () => {
   return (
     <MineWrapper className="w980">

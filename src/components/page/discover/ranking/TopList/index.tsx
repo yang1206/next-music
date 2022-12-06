@@ -1,9 +1,9 @@
 import React, { Fragment, memo } from 'react'
 import { useRouter } from 'next/router'
+import { useAppDispatch, useAppSelector } from 'src/hooks/useStore'
+import { changeCurrentIndex, changeCurrentTopListId, selectCurrentIndex } from 'src/store/slice/TopList'
+import { getSizeImage } from 'src/utils/format'
 import { TopListItemWrapper } from './style'
-import { useAppDispatch, useAppSelector } from '@/hooks/useStore'
-import { changeCurrentIndex, changeCurrentTopListId, selectCurrentIndex } from '@/store/slice/TopList'
-import { getSizeImage } from '@/utils/format'
 interface Props {
   topListInfo: {
     [key: string]: any

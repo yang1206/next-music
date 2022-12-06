@@ -1,5 +1,6 @@
 import { createAsyncThunk } from '@reduxjs/toolkit'
 import { message } from 'antd'
+import type { AppDispatch, RootState } from 'src/store'
 import {
   changeCurrentIndex,
   changeCurrentLyricList,
@@ -7,11 +8,11 @@ import {
   changeFirstLoad,
   changePlayList,
   changePlayListCount,
-} from '@/store/slice/Player'
-import { checkMusic, getHotCommentData, getLyricData, getSongDetail } from '@/api/song'
-import { parseLyric } from '@/utils/parseLyric'
-import { getRandom } from '@/utils/math'
-import { addPlaylistId } from '@/utils/storage'
+} from 'src/store/slice/Player'
+import { checkMusic, getHotCommentData, getLyricData, getSongDetail } from 'src/api/song'
+import { parseLyric } from 'src/utils/parseLyric'
+import { getRandom } from 'src/utils/math'
+import { addPlaylistId } from 'src/utils/storage'
 
 // 请求歌词信息
 const getLyric = createAsyncThunk('player/getLyric', async (id: number) => {
@@ -32,8 +33,8 @@ const getSong = createAsyncThunk<
   any,
   IGetSong,
   {
-    dispatch: any
-    state: any
+    dispatch: AppDispatch
+    state: RootState
   }
 >('player/getSong', async (params: IGetSong, { getState, dispatch }) => {
   // 检查歌曲是否可用
@@ -117,8 +118,8 @@ const getSongDetailArray = createAsyncThunk<
   any,
   IGetSongDetailArray,
   {
-    dispatch: any
-    state: any
+    dispatch: AppDispatch
+    state: RootState
   }
 >('player/getSongDetailArray', async (params: IGetSongDetailArray, { getState, dispatch }) => {
   const playList = getState().player.playList
@@ -169,8 +170,8 @@ const changePlaySong = createAsyncThunk<
   any,
   number,
   {
-    dispatch: any
-    state: any
+    dispatch: AppDispatch
+    state: RootState
   }
 >('player/changePlaySong', async (tag: number, { getState, dispatch }) => {
   const sequence = getState().player.sequence

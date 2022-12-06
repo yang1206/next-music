@@ -1,16 +1,16 @@
 import React, { createElement, memo, useCallback, useEffect, useState } from 'react'
 import { LikeFilled, LikeOutlined } from '@ant-design/icons'
 import { Avatar, Comment, Tooltip, message } from 'antd'
-import CommentsHeader from './components/CommentsHeader'
-import { SongCommentWrapper, WonderfulWrapper } from './style'
-import { changeCurrentTotal, getHotComment, selectHotComments, selectSong } from '@/store/slice/Player'
-import { useAppDispatch, useAppSelector } from '@/hooks/useStore'
+import { changeCurrentTotal, getHotComment, selectHotComments, selectSong } from 'src/store/slice/Player'
+import { useAppDispatch, useAppSelector } from 'src/hooks/useStore'
 
-import { changeIsVisible, selectLoginState, selectProfile } from '@/store/slice/Login'
-import { getSongComment, sendLikeComment, sendSongComment } from '@/api/song'
-import { getCount } from '@/utils/format'
-import Pagination from '@/components/common/Pagination'
-import CurComment from '@/components/common/Comment'
+import { changeIsVisible, selectLoginState, selectProfile } from 'src/store/slice/Login'
+import { getSongComment, sendLikeComment, sendSongComment } from 'src/api/song'
+import { getCount } from 'src/utils/format'
+import Pagination from 'src/components/common/Pagination'
+import CurComment from 'src/components/common/Comment'
+import { SongCommentWrapper, WonderfulWrapper } from './style'
+import CommentsHeader from './components/CommentsHeader'
 
 const SongComments: React.FC = () => {
   const [songComment, setSongComment] = useState([])

@@ -1,4 +1,4 @@
-import request from '@/service'
+import request from 'src/service'
 
 // 国家地区编码列表
 export const getCountriesList = () => {

@@ -1,11 +1,11 @@
 import React, { memo, useEffect } from 'react'
 import { useRouter } from 'next/router'
+import { useAppDispatch, useAppSelector } from 'src/hooks/useStore'
+import { getPersonalized, selectPersonalized } from 'src/store/slice/recommend'
+import type { Recommend } from 'src/store/interface/recommend'
+import RcmHeader from 'src/components/common/RcmHeader'
+import SongsCover from 'src/components/common/SongsCover'
 import { HotRecommendWrapper } from './style'
-import { useAppDispatch, useAppSelector } from '@/hooks/useStore'
-import { getPersonalized, selectPersonalized } from '@/store/slice/recommend'
-import type { Recommend } from '@/store/interface/recommend'
-import RcmHeader from '@/components/common/RcmHeader'
-import SongsCover from '@/components/common/SongsCover'
 // import { useNavigate } from 'react-router-dom'
 const HotRecommend: React.FC = () => {
   const router = useRouter()

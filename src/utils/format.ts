@@ -1,4 +1,4 @@
-import { address } from '@/common/localData'
+import { address } from 'src/common/localData'
 /**
  * @description 播放量转发
  * @param {Number} count 播放量
