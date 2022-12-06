@@ -1,7 +1,10 @@
 // @see: http://eslint.cn
 {
-  "extends": ["@antfu"],
+  "extends": [
+    "@antfu"
+  ],
   "rules": {
-    "sort-imports": "off"
+    "sort-imports": "off",
+    "@typescript-eslint/indent": "off"
   }
 }

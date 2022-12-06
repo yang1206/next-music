@@ -4,8 +4,7 @@ import { Slider, Tooltip, message } from 'antd'
 import { CSSTransition } from 'react-transition-group'
 import { EyeInvisibleOutlined, EyeOutlined } from '@ant-design/icons'
 import { PlayerBarWrapper } from './style'
-import PlayPanel from '@/components/common/PlayPanel'
-import { useAppDispatch, useAppSelector } from '@/hooks/useStore'
+import { formatMinuteSecond, getPlayUrl, getSizeImage } from '@/utils/format'
 import {
   selectSong,
   selectSequence,
@@ -21,7 +20,8 @@ import {
   changeShowLyrics,
   changeFirstLoad,
 } from '@/store/slice/Player'
-import { formatMinuteSecond, getPlayUrl, getSizeImage } from '@/utils/format'
+import { useAppDispatch, useAppSelector } from '@/hooks/useStore'
+import PlayPanel from '@/components/common/PlayPanel'
 const PlayBar: React.FC = () => {
   // 从redux取出数据
   const currentSong = useAppSelector(selectSong).data

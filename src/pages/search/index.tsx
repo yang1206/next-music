@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react'
 import { useRouter } from 'next/router'
 import { Input, Tabs } from 'antd'
 // import { wrapper } from '@/store'
-import { useAppDispatch, useAppSelector } from '@/hooks/useStore'
+import { useAppDispatch, useAppSelector } from 'src/hooks/useStore'
 import {
   getSearchAlbumList,
   getSearchSingerList,
@@ -10,12 +10,12 @@ import {
   selectAlbumList,
   selectSingerList,
   selectSingleSongList,
-} from '@/store/slice/Search'
-import SingleSong from '@/components/page/search/SingleSong'
-import ArtistCover from '@/components/common/ArtistCover'
-import AlbumCover from '@/components/common/AlbumCover'
-import { formatMinuteSecond } from '@/utils/format'
-import { SearchWrapper } from '@/styles/page/search'
+} from 'src/store/slice/Search'
+import SingleSong from 'src/components/page/search/SingleSong'
+import ArtistCover from 'src/components/common/ArtistCover'
+import AlbumCover from 'src/components/common/AlbumCover'
+import { formatMinuteSecond } from 'src/utils/format'
+import { SearchWrapper } from 'src/styles/page/search'
 const SearchContent: React.FC = () => {
   const [activeKey, setActive] = useState<string>()
   const [searchValue, setSearchValue] = useState<string>()

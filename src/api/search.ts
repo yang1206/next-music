@@ -1,4 +1,4 @@
-import request from '@/service'
+import request from 'src/service'
 interface Param {
   keywords: string
   limit: number

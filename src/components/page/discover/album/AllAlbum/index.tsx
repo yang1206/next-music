@@ -1,10 +1,10 @@
 import React, { memo, useEffect, useState } from 'react'
+import { getNewAlbums } from 'src/api/recommend'
+import AlbumCover from 'src/components/common/AlbumCover'
+import RcmHeader from 'src/components/common/RcmHeader'
+import Pagination from 'src/components/common/Pagination'
+import type { Recommend } from 'src/store/interface/recommend'
 import { AllAlbumWrapper } from './style'
-import { getNewAlbums } from '@/api/recommend'
-import AlbumCover from '@/components/common/AlbumCover'
-import RcmHeader from '@/components/common/RcmHeader'
-import Pagination from '@/components/common/Pagination'
-import type { Recommend } from '@/store/interface/recommend'
 const AllAlbum: React.FC = () => {
   const [albumList, setAlbumList] = useState<any>({})
   useEffect(() => {

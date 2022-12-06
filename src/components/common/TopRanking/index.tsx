@@ -1,11 +1,11 @@
 import React, { memo } from 'react'
-import { TopRankingWrapper } from './style'
-import { getSizeImage } from '@/utils/format'
-import type { Recommend } from '@/store/interface/recommend'
-import { getSong /* changeCurrentSong, changePlayList, changeCurrentIndex */, selectPlayList } from '@/store/slice/Player'
-import { useAppDispatch, useAppSelector } from '@/hooks/useStore'
+import { getSizeImage } from 'src/utils/format'
+import type { Recommend } from 'src/store/interface/recommend'
+import { getSong /* changeCurrentSong, changePlayList, changeCurrentIndex */, selectPlayList } from 'src/store/slice/Player'
+import { useAppDispatch, useAppSelector } from 'src/hooks/useStore'
 
-import { useAddPlaylist } from '@/hooks/useAddPlaylist'
+import { useAddPlaylist } from 'src/hooks/useAddPlaylist'
+import { TopRankingWrapper } from './style'
 interface Props {
   info: Recommend.topItem
 }

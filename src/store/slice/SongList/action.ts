@@ -1,6 +1,7 @@
 import { createAsyncThunk } from '@reduxjs/toolkit'
-import { getSongCategory, getSongCategoryList, getSongListDetail } from '@/api/songlist'
-import { handleSongsCategory } from '@/utils/handledata'
+import { getSongCategory, getSongCategoryList, getSongListDetail } from 'src/api/songlist'
+import { handleSongsCategory } from 'src/utils/handledata'
+import type { RootState } from 'src/store'
 // 歌单详情
 const getSongListDetailData = createAsyncThunk('songList/getSongListData', async (id: string) => {
   const data = await getSongListDetail({ id }).then((res) => {
@@ -20,9 +21,9 @@ const getCategory = createAsyncThunk('songList/getCategory', async () => {
 
 const getPlayList = createAsyncThunk<
   any,
-  any,
+  number,
   {
-    state: any
+    state: RootState
   }
 >('songList/getPlayList', async (page, { getState }) => {
   const name = getState().songList.currentCategory

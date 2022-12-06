@@ -1,6 +1,6 @@
 import { createAsyncThunk } from '@reduxjs/toolkit'
-import { getSearch } from '@/api/search'
-import { tryHideFullScreenLoading } from '@/config/serviceLoading'
+import { getSearch } from 'src/api/search'
+import { tryHideFullScreenLoading } from 'src/config/serviceLoading'
 interface SearchParams {
   keywords: string
   type: string

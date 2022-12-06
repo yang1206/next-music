@@ -1,11 +1,11 @@
 import React, { memo, useEffect, useState } from 'react'
 import { useRouter } from 'next/router'
-import { getArtistsList } from '@/api/artist'
-import ArtistCategory from '@/components/page/discover/artist/ArtistCategory'
-import ArtistCover from '@/components/common/ArtistCover'
-import Pagination from '@/components/common/Pagination'
-import NavBar from '@/components/common/NavBar'
-import { AllAlbumWrapper } from '@/styles/page/discover/artist'
+import { getArtistsList } from 'src/api/artist'
+import ArtistCategory from 'src/components/page/discover/artist/ArtistCategory'
+import ArtistCover from 'src/components/common/ArtistCover'
+import Pagination from 'src/components/common/Pagination'
+import NavBar from 'src/components/common/NavBar'
+import { AllAlbumWrapper } from 'src/styles/page/discover/artist'
 // TODO 完成歌手
 const ArtistList: React.FC = () => {
   const router = useRouter()

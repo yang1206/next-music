@@ -1,3 +1,4 @@
+'use client'
 import Banner from './components/banner'
 import HotRecommend from './components/hotRecommend'
 import NewAlbum from './components/newAlbum'

@@ -1,7 +1,7 @@
-import NavBar from '@/components/common/NavBar'
+import NavBar from 'src/components/common/NavBar'
 // import { getAlbumDetail } from '@/api/album'
-import AlbumInfo from '@/components/page/album/AlbumInfo'
-import { AlbumDetailWrapper } from '@/styles/page/album'
+import AlbumInfo from 'src/components/page/album/AlbumInfo'
+import { AlbumDetailWrapper } from 'src/styles/page/album'
 
 export async function getServerSideProps(context) {
   const { id } = context.query

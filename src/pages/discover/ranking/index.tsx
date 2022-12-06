@@ -1,12 +1,12 @@
 import React, { memo, useEffect } from 'react'
 import { useRouter } from 'next/router'
-import { useAppDispatch, useAppSelector } from '@/hooks/useStore'
-import { getTopListInfo, getTopListTitleInfo, selectCurrentTopListId, selectTopListInfo } from '@/store/slice/TopList'
-import TopListTitle from '@/components/page/discover/ranking/Title'
-import TopListMain from '@/components/page/discover/ranking/Main'
-import TopListInfo from '@/components/page/discover/ranking/TopList'
-import NavBar from '@/components/common/NavBar'
-import { TopListWrapper } from '@/styles/page/discover/ranking'
+import { useAppDispatch, useAppSelector } from 'src/hooks/useStore'
+import { getTopListInfo, getTopListTitleInfo, selectCurrentTopListId, selectTopListInfo } from 'src/store/slice/TopList'
+import TopListTitle from 'src/components/page/discover/ranking/Title'
+import TopListMain from 'src/components/page/discover/ranking/Main'
+import TopListInfo from 'src/components/page/discover/ranking/TopList'
+import NavBar from 'src/components/common/NavBar'
+import { TopListWrapper } from 'src/styles/page/discover/ranking'
 const Ranking: React.FC = () => {
   const router = useRouter()
   const dispatch = useAppDispatch()

@@ -37,7 +37,6 @@ const makeStore = () =>
       songList: SongListSlice,
       login: LoginSlice,
       topList: TopListSlice,
-      [subjectSlice.name]: subjectSlice.reducer,
     },
     devTools: process.env.NODE_ENV !== 'production',
   })

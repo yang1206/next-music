@@ -1,15 +1,15 @@
 import { memo, useCallback } from 'react'
 import { Skeleton, Tag, message } from 'antd'
 import { DeleteOutlined, HeartTwoTone } from '@ant-design/icons'
-import { SongListDetailWrapper } from './style'
-import { useAppDispatch, useAppSelector } from '@/hooks/useStore'
-import { getSizeImage, parseTime } from '@/utils/format'
-import { selectSongListDetailInfo } from '@/store/slice/SongList'
-import { changeIsVisible, selectLoginState, selectProfile } from '@/store/slice/Login'
-import { deleteSongList, subscribeSongList } from '@/api/user'
+import { useAppDispatch, useAppSelector } from 'src/hooks/useStore'
+import { getSizeImage, parseTime } from 'src/utils/format'
+import { selectSongListDetailInfo } from 'src/store/slice/SongList'
+import { changeIsVisible, selectLoginState, selectProfile } from 'src/store/slice/Login'
+import { deleteSongList, subscribeSongList } from 'src/api/user'
 
-import RcmHeader from '@/components/common/RcmHeader'
-import PlayList from '@/components/common/PlayList'
+import RcmHeader from 'src/components/common/RcmHeader'
+import PlayList from 'src/components/common/PlayList'
+import { SongListDetailWrapper } from './style'
 const SongListInfo: React.FC = () => {
   const dispatch = useAppDispatch()
   const SongListDetail = useAppSelector(selectSongListDetailInfo).data.playList

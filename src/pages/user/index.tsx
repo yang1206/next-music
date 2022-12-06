@@ -3,14 +3,14 @@ import { useRouter } from 'next/router'
 import Modal from 'antd/lib/modal/Modal'
 import { ManOutlined, PlayCircleOutlined, WomanOutlined } from '@ant-design/icons'
 import { Input, message } from 'antd'
-import { useAppDispatch, useAppSelector } from '@/hooks/useStore'
-import { changeIsVisible, selectLoginState, selectProfile } from '@/store/slice/Login'
-import { CreateSongList, getRecentdSong, getUserLevel, gotoUserSongList } from '@/api/user'
-import { getCity, getSizeImage } from '@/utils/format'
-import Authentication from '@/components/common/Authentication'
-import RcmHeader from '@/components/common/RcmHeader'
-import SongsCover from '@/components/common/SongsCover'
-import { ProfileWrapper } from '@/styles/page/user'
+import { useAppDispatch, useAppSelector } from 'src/hooks/useStore'
+import { changeIsVisible, selectLoginState, selectProfile } from 'src/store/slice/Login'
+import { CreateSongList, getRecentdSong, getUserLevel, gotoUserSongList } from 'src/api/user'
+import { getCity, getSizeImage } from 'src/utils/format'
+import Authentication from 'src/components/common/Authentication'
+import RcmHeader from 'src/components/common/RcmHeader'
+import SongsCover from 'src/components/common/SongsCover'
+import { ProfileWrapper } from 'src/styles/page/user'
 const User: React.FC = () => {
   const router = useRouter()
   const dispatch = useAppDispatch()
@@ -114,10 +114,10 @@ const User: React.FC = () => {
               {gender === 'man'
                 ? (
                   <ManOutlined className="gender-icon man" />
-                  )
+                )
                 : (
                   <WomanOutlined className="gender-icon" color="#e60026" />
-                  )}
+                )}
             </div>
           </div>
           <div className="dynamic-wrap flex">{renderDynamicList()}</div>

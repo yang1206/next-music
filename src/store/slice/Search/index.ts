@@ -1,7 +1,7 @@
 import { createSlice } from '@reduxjs/toolkit'
 import { shallowEqual } from 'react-redux'
+import type { RootState } from 'src/store'
 import { getSearchAlbumList, getSearchSingerList, getSearchSong, getSearchSongList } from './action'
-import type { RootState } from '@/store'
 interface InitialState {
   searchSongList: Array<any>
   focusState: boolean

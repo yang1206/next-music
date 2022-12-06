@@ -1,7 +1,7 @@
 import React, { memo } from 'react'
+import { useAppSelector } from 'src/hooks/useStore'
+import { selectCurrentTotal } from 'src/store/slice/Player'
 import { CommentsHeaderWrapper } from './style'
-import { useAppSelector } from '@/hooks/useStore'
-import { selectCurrentTotal } from '@/store/slice/Player'
 interface Props {
   title: string
 }

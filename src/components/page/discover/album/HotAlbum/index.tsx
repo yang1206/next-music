@@ -1,10 +1,10 @@
 import React, { memo, useEffect } from 'react'
 import { Skeleton } from 'antd'
+import { useAppDispatch, useAppSelector } from 'src/hooks/useStore'
+import { getNewAlbums, selectNewAlbums } from 'src/store/slice/recommend'
+import AlbumCover from 'src/components/common/AlbumCover'
+import RcmHeader from 'src/components/common/RcmHeader'
 import { HotAlbumWrapper } from './style'
-import { useAppDispatch, useAppSelector } from '@/hooks/useStore'
-import { getNewAlbums, selectNewAlbums } from '@/store/slice/recommend'
-import AlbumCover from '@/components/common/AlbumCover'
-import RcmHeader from '@/components/common/RcmHeader'
 const HotAlbum: React.FC = () => {
   const dispatch = useAppDispatch()
   const hotNewAlbums = useAppSelector(selectNewAlbums).data.slice(0, 10)
@@ -21,19 +21,19 @@ const HotAlbum: React.FC = () => {
       <RcmHeader title={'热门新碟'} right={<></>} />
       {!hotNewAlbums.length
         ? (
-        <Skeleton active />
-          )
+          <Skeleton active />
+        )
         : (
-        <div className="HotAlbum-list">
-          {hotNewAlbums.map((item, index: number) => {
-            return (
-              <div key={index} className="HotAlbum-item">
-                <AlbumCover info={item} {...CoverProps} />
-              </div>
-            )
-          })}
-        </div>
-          )}
+          <div className="HotAlbum-list">
+            {hotNewAlbums.map((item, index: number) => {
+              return (
+                <div key={index} className="HotAlbum-item">
+                  <AlbumCover info={item} {...CoverProps} />
+                </div>
+              )
+            })}
+          </div>
+        )}
     </HotAlbumWrapper>
   )
 }

@@ -1,5 +1,5 @@
 import ReactDOM from 'react-dom/client'
-import Loading from '@/components/common/Loading'
+import Loading from 'src/components/common/Loading'
 
 let needLoadingRequestCount = 0
 

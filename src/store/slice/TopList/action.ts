@@ -1,5 +1,5 @@
 import { createAsyncThunk } from '@reduxjs/toolkit'
-import { getAllTopList, getPlaylist } from '@/api/recommend'
+import { getAllTopList, getPlaylist } from 'src/api/recommend'
 // 榜单列表
 const getTopListInfo = createAsyncThunk('topList/getTopListInfoAction', async (id: number) => {
   const data = await getAllTopList(id).then((res) => {

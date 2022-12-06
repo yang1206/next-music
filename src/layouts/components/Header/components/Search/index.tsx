@@ -4,10 +4,10 @@ import type { InputRef } from 'antd'
 import { Input } from 'antd'
 import { SearchOutlined } from '@ant-design/icons'
 import { useDebounceFn } from 'ahooks'
+import { useAppDispatch, useAppSelector } from 'src/hooks/useStore'
+import { changeFocusState, getSearchSong, selectFocusState, selectSearchSongList } from 'src/store/slice/Search'
+import { getSong } from 'src/store/slice/Player'
 import { SearchWrapper } from './style'
-import { useAppDispatch, useAppSelector } from '@/hooks/useStore'
-import { changeFocusState, getSearchSong, selectFocusState, selectSearchSongList } from '@/store/slice/Search'
-import { getSong } from '@/store/slice/Player'
 const Search: React.FC = () => {
   const inputRef = useRef<InputRef>(null)
   const [recordActive, setRecordActive] = useState(-1)
@@ -84,9 +84,9 @@ const Search: React.FC = () => {
     [recordActive, setRecordActive, searchSongList],
   )
   // 点击当前item歌曲项
-  const changeCurrentSong = (id: number, item: { name: string; artists: { name: string }[] }) => {
+  const changeCurrentSong = (id: number, item: { name: string; ar: { name: string }[] }) => {
     // 放到搜索文本框
-    setValue(`${item.name}-${item.artists[0].name}`)
+    setValue(`${item.name}-${item.ar[0].name}`)
     // 派发action
     dispatch(getSong({ id, isPlay: true }))
     dispatch(changeFocusState(false))
@@ -147,7 +147,7 @@ const Search: React.FC = () => {
                       key={item.id}
                       onClick={() => changeCurrentSong(item.id, item)}
                     >
-                      <span>{item.name}</span>-{item.artists[0].name}
+                      <span>{item.name}</span>-{item.ar[0].name}
                     </div>
                   )
                 })}

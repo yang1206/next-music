@@ -1,10 +1,10 @@
 import React, { memo } from 'react'
 import { DeleteOutlined, DownloadOutlined, LikeOutlined } from '@ant-design/icons'
+import { formatDate, getPlayUrl } from 'src/utils/format'
+import { useAppDispatch, useAppSelector } from 'src/hooks/useStore'
+import { changeCurrentSong, changePlayList, changePlayListCount, selectPlayList, selectSong } from 'src/store/slice/Player'
+import { removeSongId } from 'src/utils/storage'
 import { PlaylistItemWrapper } from './style'
-import { formatDate, getPlayUrl } from '@/utils/format'
-import { useAppDispatch, useAppSelector } from '@/hooks/useStore'
-import { changeCurrentSong, changePlayList, changePlayListCount, selectPlayList, selectSong } from '@/store/slice/Player'
-import { removeSongId } from '@/utils/storage'
 const PlayListItem: React.FC<any> = (props) => {
   const { songName, singer, duration, isActive, clickItem, songId, nextMusic, playMusic } = props
   const dispatch = useAppDispatch()

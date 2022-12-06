@@ -1,10 +1,10 @@
 import React, { memo, useState } from 'react'
 import { Button, Checkbox, Form, Input, message } from 'antd'
+import { getMatchReg, getParseLoginState } from 'src/utils/format'
+import { useAppDispatch } from 'src/hooks/useStore'
+import { getLoginProfileInfo } from 'src/store/slice/Login'
+import { sendRegister, sendRegisterCode } from 'src/api/login'
 import { LoginFrom } from './style'
-import { getMatchReg, getParseLoginState } from '@/utils/format'
-import { useAppDispatch } from '@/hooks/useStore'
-import { getLoginProfileInfo } from '@/store/slice/Login'
-import { sendRegister, sendRegisterCode } from '@/api/login'
 const layout = {
   labelCol: { span: 6 },
   wrapperCol: { span: 16 },

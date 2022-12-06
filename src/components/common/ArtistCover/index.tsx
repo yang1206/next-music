@@ -1,7 +1,7 @@
 import { memo } from 'react'
 import { useRouter } from 'next/router'
+import { getSizeImage } from 'src/utils/format'
 import { SingerItemWrapper } from './style'
-import { getSizeImage } from '@/utils/format'
 
 interface Props {
   coverPic: string

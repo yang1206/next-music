@@ -1,11 +1,11 @@
 import React, { memo, useEffect, useState } from 'react'
 import { useRouter } from 'next/router'
 import { Tabs } from 'antd'
-import { getArtists, getArtistsAlbum, getArtistsDesc } from '@/api/artist'
-import NavBar from '@/components/common/NavBar'
-import PlayList from '@/components/common/PlayList'
-import AlbumCover from '@/components/common/AlbumCover'
-import { ArtistDetailWrapper } from '@/styles/page/artist'
+import { getArtists, getArtistsAlbum, getArtistsDesc } from 'src/api/artist'
+import NavBar from 'src/components/common/NavBar'
+import PlayList from 'src/components/common/PlayList'
+import AlbumCover from 'src/components/common/AlbumCover'
+import { ArtistDetailWrapper } from 'src/styles/page/artist'
 const Artist: React.FC = () => {
   const router = useRouter()
   const { id }: any = router.query
@@ -40,33 +40,33 @@ const Artist: React.FC = () => {
       label: '热门作品',
       key: '1',
       children: (
-          <div style={{ marginTop: '20px' }}>
-            <PlayList playlist={SongList} />
-          </div>),
+        <div style={{ marginTop: '20px' }}>
+          <PlayList playlist={SongList} />
+        </div>),
 
     },
     {
       label: '所有专辑',
       key: '2',
       children: (<div className="Album-list">
-          {AlbumList
-            && AlbumList.map((item, index: number) => {
-              return (
-                <div key={index} className="HotAlbum-item">
-                  <AlbumCover info={item} {...CoverProps} />
-                </div>
-              )
-            })}
-        </div>),
+        {AlbumList
+          && AlbumList.map((item, index: number) => {
+            return (
+              <div key={index} className="HotAlbum-item">
+                <AlbumCover info={item} {...CoverProps} />
+              </div>
+            )
+          })}
+      </div>),
 
     },
     {
       label: '相关MV',
       key: '3',
       children: (
-          <div className="mv">
-            <h1>暂无MV</h1>
-          </div>
+        <div className="mv">
+          <h1>暂无MV</h1>
+        </div>
       ),
 
     },
@@ -74,22 +74,22 @@ const Artist: React.FC = () => {
       label: '艺人介绍',
       key: '4',
       children:
-          (<div className="desc">
-            <div className="item">
-              <p>{artistName}简介</p>
-              <span>{artistDesc}</span>
-            </div>
-            {descIntroduction
-              && descIntroduction.map((item, index) => {
-                return (
-                  <div key={index} className="item">
-                    <h2>{item.ti}</h2>
-                    <span>{item.txt}</span>
-                  </div>
-                )
-              })}
+        (<div className="desc">
+          <div className="item">
+            <p>{artistName}简介</p>
+            <span>{artistDesc}</span>
           </div>
-          ),
+          {descIntroduction
+            && descIntroduction.map((item, index) => {
+              return (
+                <div key={index} className="item">
+                  <h2>{item.ti}</h2>
+                  <span>{item.txt}</span>
+                </div>
+              )
+            })}
+        </div>
+        ),
     },
 
   ]

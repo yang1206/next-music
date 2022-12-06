@@ -1,7 +1,7 @@
 import React, { memo } from 'react'
+import { useAppDispatch, useAppSelector } from 'src/hooks/useStore'
+import { changeCurrentCategory, getPlayList, selectCategory } from 'src/store/slice/SongList'
 import { CategoryWrapper } from './style'
-import { useAppDispatch, useAppSelector } from '@/hooks/useStore'
-import { changeCurrentCategory, getPlayList, selectCategory } from '@/store/slice/SongList'
 const SongsCategory: React.FC = () => {
   const category = useAppSelector(selectCategory).data
   const dispatch = useAppDispatch()

@@ -1,5 +1,5 @@
 import React from 'react'
-import { FriendWrapper } from '@/styles/page/friend'
+import { FriendWrapper } from 'src/styles/page/friend'
 const Friend: React.FC = () => {
   return (
     <div>

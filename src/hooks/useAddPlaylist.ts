@@ -1,7 +1,7 @@
 import { message } from 'antd'
+import { getSong } from 'src/store/slice/Player'
+import { getFindIdIndex } from 'src/utils/math'
 import { useAppDispatch } from './useStore'
-import { getSong } from '@/store/slice/Player'
-import { getFindIdIndex } from '@/utils/math'
 
 /**
  * 调用该函数:传递播放列表

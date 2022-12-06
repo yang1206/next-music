@@ -1,4 +1,4 @@
-import { LOCAL_CURRENT_SONG_INDEX_KEY, LOCAL_PLAYLIST_ID_KEY } from '@/common/constants'
+import { LOCAL_CURRENT_SONG_INDEX_KEY, LOCAL_PLAYLIST_ID_KEY } from 'src/common/constants'
 /**
  * @description 获取localStorage
  * @param {String} key Storage名称

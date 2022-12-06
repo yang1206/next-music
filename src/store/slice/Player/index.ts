@@ -1,9 +1,9 @@
 import { createSlice } from '@reduxjs/toolkit'
 import { shallowEqual } from 'react-redux'
+import type { RootState } from 'src/store'
+import type { Player } from 'src/store/interface/player'
+import { setCurrentSongIndex } from 'src/utils/storage'
 import { changePlaySong, getHotComment, getLyric, getSong, getSongDetailArray } from './action'
-import type { RootState } from '@/store'
-import type { Player } from '@/store/interface/player'
-import { setCurrentSongIndex } from '@/utils/storage'
 interface InitialState {
   currentSongData: Player.SongDetail
   currentSongIndex: number

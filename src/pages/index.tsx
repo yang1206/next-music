@@ -1,5 +1,5 @@
-import NavBar from '@/components/common/NavBar'
-import Recommend from '@/components/page/discover/recommend'
+import NavBar from 'src/components/common/NavBar'
+import Recommend from 'src/components/page/discover/recommend'
 const Index = () => {
   return (
     <>

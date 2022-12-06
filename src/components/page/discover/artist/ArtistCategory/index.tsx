@@ -1,7 +1,7 @@
 import React, { memo } from 'react'
 import Link from 'next/link'
+import { singerCategories } from 'src/common/localData'
 import { ArtistCategoryWrapper } from './style'
-import { singerCategories } from '@/common/localData'
 const ArtistCategory: React.FC = () => {
   return (
     <ArtistCategoryWrapper>

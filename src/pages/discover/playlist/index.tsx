@@ -1,12 +1,12 @@
 import React, { memo, useEffect } from 'react'
 import { useRouter } from 'next/router'
 // import { getQueryObject } from '@/utils/format'
-import { useAppDispatch } from '@/hooks/useStore'
-import { changeCurrentCategory, getCategory, getPlayList } from '@/store/slice/SongList'
-import NavBar from '@/components/common/NavBar'
-import SongsHeader from '@/components/page/discover/songs/SongsHeader'
-import SongsList from '@/components/page/discover/songs/SongsList'
-import { PlaylistWrapper } from '@/styles/page/discover/playlist'
+import { useAppDispatch } from 'src/hooks/useStore'
+import { changeCurrentCategory, getCategory, getPlayList } from 'src/store/slice/SongList'
+import NavBar from 'src/components/common/NavBar'
+import SongsHeader from 'src/components/page/discover/songs/SongsHeader'
+import SongsList from 'src/components/page/discover/songs/SongsList'
+import { PlaylistWrapper } from 'src/styles/page/discover/playlist'
 const Songs: React.FC = () => {
   const router = useRouter()
   const dispatch = useAppDispatch()
