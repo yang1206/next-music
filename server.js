@@ -3,10 +3,10 @@ const next = require('next')
 const { createProxyMiddleware } = require('http-proxy-middleware')
 
 const devProxy = {
-  '/api': {
+  '/app': {
     target: 'https://halocn.top/', // 端口自己配置合适的
     pathRewrite: {
-      '^/api': '/',
+      '^/app': '/',
     },
     changeOrigin: true,
   },

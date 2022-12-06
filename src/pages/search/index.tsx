@@ -1,6 +1,7 @@
-import { memo, useEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
 import { useRouter } from 'next/router'
 import { Input, Tabs } from 'antd'
+// import { wrapper } from '@/store'
 import { useAppDispatch, useAppSelector } from '@/hooks/useStore'
 import {
   getSearchAlbumList,
@@ -89,9 +90,9 @@ const SearchContent: React.FC = () => {
                           key={item.id}
                           songId={item.id}
                           songName={item.name}
-                          singer={item.artists[0].name}
-                          album={item.album.name}
-                          duration={formatMinuteSecond(item.duration)}
+                          singer={item?.ar[0]?.name}
+                          album={item.al.name}
+                          duration={formatMinuteSecond(item.dt)}
                         />
                       )
                     })}
@@ -124,4 +125,17 @@ const SearchContent: React.FC = () => {
     </SearchWrapper>
   )
 }
-export default memo(SearchContent)
+
+// export const getServerSideProps = wrapper.getServerSideProps(store => async ({ query }) => {
+//   const { song, type }: any = query
+//   await store.dispatch(getSearchSongList({ keywords: song, type }))
+//   // eslint-disable-next-line no-console
+//   console.log('State on server', store.getState())
+
+//   return {
+//     props: {
+//       song, type,
+//     },
+//   }
+// })
+export default (SearchContent)

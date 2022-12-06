@@ -1,8 +1,7 @@
-import React, { memo } from 'react'
 import ActiveLink from '../ActiveLink'
 import { NavBarWrapper } from './style'
 import { discoverMenu } from '@/common/localData'
-const NavBar: React.FC = () => {
+const NavBar = () => {
   return (
     <NavBarWrapper className="wrap-v1">
       <div className="">
@@ -19,4 +18,4 @@ const NavBar: React.FC = () => {
     </NavBarWrapper>
   )
 }
-export default memo(NavBar)
+export default NavBar
