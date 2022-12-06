@@ -30,19 +30,19 @@ export const LoginSlice = createSlice({
   name: 'login',
   initialState,
   reducers: {
-    changeIsVisible: (state, { payload }: any) => {
+    changeIsVisible: (state, { payload }) => {
       state.isVisible = payload
     },
-    changeLoginState: (state, { payload }: any) => {
+    changeLoginState: (state, { payload }) => {
       state.isLogin = payload
     },
-    changeProfileInfo: (state, { payload }: any) => {
+    changeProfileInfo: (state, { payload }) => {
       state.profile = payload
     },
-    changeToken: (state, { payload }: any) => {
+    changeToken: (state, { payload }) => {
       state.token = payload
     },
-    changeCookie: (state, { payload }: any) => {
+    changeCookie: (state, { payload }) => {
       state.cookie = payload
     },
   },

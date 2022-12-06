@@ -24,11 +24,11 @@ export const TopListSlice = createSlice({
   initialState,
   reducers: {
     // 改变当前索引
-    changeCurrentIndex: (state, { payload }: any) => {
+    changeCurrentIndex: (state, { payload }) => {
       state.currentIndex = payload
     },
     // 改变当前歌单的ID
-    changeCurrentTopListId: (state, { payload }: any) => {
+    changeCurrentTopListId: (state, { payload }) => {
       state.currentTopListId = payload
     },
   },
