@@ -27,6 +27,7 @@ specifiers:
   js-md5: ^0.7.3
   lint-staged: ^13.1.0
   next: latest
+  next-redux-wrapper: ^8.0.0
   normalize.css: ^8.0.1
   nprogress: ^0.2.0
   postcss: ^8.4.19
@@ -35,7 +36,7 @@ specifiers:
   react-redux: ^7.2.9
   react-transition-group: ^4.4.5
   redux-persist: ^6.0.0
-  sharp: ^0.30.7
+  sharp: ^0.31.2
   styled-components: ^5.3.6
   ts-node: ^10.9.1
   typescript: ^4.9.3
@@ -51,6 +52,7 @@ dependencies:
   express: 4.18.2
   js-md5: 0.7.3
   next: 13.0.6_biqbaboplfbrettd7655fr4n2y
+  next-redux-wrapper: 8.0.0_erftxlum46yo4rbkbmve3otlc4
   normalize.css: 8.0.1
   nprogress: 0.2.0
   react: 18.2.0
@@ -58,7 +60,7 @@ dependencies:
   react-redux: 7.2.9_biqbaboplfbrettd7655fr4n2y
   react-transition-group: 4.4.5_biqbaboplfbrettd7655fr4n2y
   redux-persist: 6.0.0_react@18.2.0
-  sharp: 0.30.7
+  sharp: 0.31.2
   styled-components: 5.3.6_biqbaboplfbrettd7655fr4n2y
 
 devDependencies:
@@ -3655,6 +3657,18 @@ packages:
     engines: {node: '>= 0.6'}
     dev: false
 
+  /next-redux-wrapper/8.0.0_erftxlum46yo4rbkbmve3otlc4:
+    resolution: {integrity: sha512-zKRdpvDeqNXQr1j5DUWwsB2fz6XpHR32iy2qJGItTKLsbLB9GvtxDL9b4mFCfhDvnzy5dw97UqMjWDpFY8h0zA==}
+    peerDependencies:
+      next: '>=9'
+      react: '*'
+      react-redux: '*'
+    dependencies:
+      next: 13.0.6_biqbaboplfbrettd7655fr4n2y
+      react: 18.2.0
+      react-redux: 7.2.9_biqbaboplfbrettd7655fr4n2y
+    dev: false
+
   /next/13.0.6_biqbaboplfbrettd7655fr4n2y:
     resolution: {integrity: sha512-COvigvms2LRt1rrzfBQcMQ2GZd86Mvk1z+LOLY5pniFtL4VrTmhZ9salrbKfSiXbhsD01TrDdD68ec3ABDyscA==}
     engines: {node: '>=14.6.0'}
@@ -4969,9 +4983,9 @@ packages:
   /shallowequal/1.1.0:
     resolution: {integrity: sha512-y0m1JoUZSlPAjXVtPPW70aZWfIL/dSP7AFkRnniLCrK/8MDKog3TySTBmckD+RObVxH0v4Tox67+F14PdED2oQ==}
 
-  /sharp/0.30.7:
-    resolution: {integrity: sha512-G+MY2YW33jgflKPTXXptVO28HvNOo9G3j0MybYAHeEmby+QuD2U98dT6ueht9cv/XDqZspSpIhoSW+BAKJ7Hig==}
-    engines: {node: '>=12.13.0'}
+  /sharp/0.31.2:
+    resolution: {integrity: sha512-DUdNVEXgS5A97cTagSLIIp8dUZ/lZtk78iNVZgHdHbx1qnQR7JAHY0BnXnwwH39Iw+VKhO08CTYhIg0p98vQ5Q==}
+    engines: {node: '>=14.15.0'}
     requiresBuild: true
     dependencies:
       color: 4.2.3

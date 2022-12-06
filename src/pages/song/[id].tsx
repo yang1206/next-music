@@ -47,4 +47,5 @@ const Player: React.FC = () => {
     </PlayerWrapper>
   )
 }
+
 export default Player

@@ -114,10 +114,10 @@ const User: React.FC = () => {
               {gender === 'man'
                 ? (
                   <ManOutlined className="gender-icon man" />
-                )
+                  )
                 : (
                   <WomanOutlined className="gender-icon" color="#e60026" />
-                )}
+                  )}
             </div>
           </div>
           <div className="dynamic-wrap flex">{renderDynamicList()}</div>
@@ -157,4 +157,5 @@ const User: React.FC = () => {
     </ProfileWrapper>
   )
 }
+
 export default User
