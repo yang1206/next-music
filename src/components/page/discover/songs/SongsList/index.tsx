@@ -13,7 +13,7 @@ const SongsList: React.FC = () => {
   const total = categorySongs.total || 0
   // hooks
   const [currentPage, setCurrentPage] = useState(1)
-  function onPageChange(page: React.SetStateAction<number>) {
+  function onPageChange(page: number) {
     window.scroll(0, 0)
     setCurrentPage(page)
     dispatch(getPlayList(page))
