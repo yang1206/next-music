@@ -1,6 +1,7 @@
 import { memo, useCallback } from 'react'
 import { Skeleton, Tag, message } from 'antd'
 import { DeleteOutlined, HeartTwoTone } from '@ant-design/icons'
+import { SongListDetailWrapper } from './style'
 import { useAppDispatch, useAppSelector } from 'src/hooks/useStore'
 import { getSizeImage, parseTime } from 'src/utils/format'
 import { selectSongListDetailInfo } from 'src/store/slice/SongList'
@@ -9,7 +10,6 @@ import { deleteSongList, subscribeSongList } from 'src/api/user'
 
 import RcmHeader from 'src/components/common/RcmHeader'
 import PlayList from 'src/components/common/PlayList'
-import { SongListDetailWrapper } from './style'
 const SongListInfo: React.FC = () => {
   const dispatch = useAppDispatch()
   const SongListDetail = useAppSelector(selectSongListDetailInfo).data.playList
@@ -51,7 +51,7 @@ const SongListInfo: React.FC = () => {
     else {
       dispatch(changeIsVisible(true))
     }
-  }, [isLogin, dispatch, playlist])
+  }, [isLogin, dispatch, SongListDetail.id, subscribed])
   // 删除歌单
   const deleteList = useCallback(() => {
     if (isLogin) {
@@ -63,7 +63,7 @@ const SongListInfo: React.FC = () => {
     else {
       dispatch(changeIsVisible(true))
     }
-  }, [isLogin, dispatch, userID, SongListUser])
+  }, [isLogin, dispatch, SongListDetail.id])
   const renderTags = () => {
     return (
       labelsArr

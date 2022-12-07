@@ -79,7 +79,7 @@ const PlayBar: React.FC = () => {
     // 先判断在改变播放状态
     setIsPlaying(!isPlaying)
     isPlaying ? setPlayClass('sprite_playBar btn play') : setPlayClass('sprite_playBar btn pause')
-  }, [isPlaying])
+  }, [isPlaying, dispatch])
   // 歌曲播放完毕
   const playEnded = useCallback(() => {
     if (sequence === 2) {
@@ -95,7 +95,7 @@ const PlayBar: React.FC = () => {
 
       setIsPlaying(true)
     }
-  }, [])
+  }, [dispatch, playList, sequence])
   const timeUpdate = (e: any) => {
     const currentTime = e.target.currentTime * 1000
     // 如果进度条正在被拖动Progress，也就是当前进度条的位置就不随着歌曲进度改变
@@ -159,7 +159,7 @@ const PlayBar: React.FC = () => {
         audioRef.current?.play()
     },
     // 这里必须依赖duration，否则会设置为0
-    [duration, isPlaying, play],
+    [duration, isPlaying],
   )
   const changeSequenceData = () => {
     let currentSequence = sequence + 1

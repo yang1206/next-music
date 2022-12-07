@@ -1,5 +1,5 @@
-import request from 'src/service'
 import type { SongList } from './interface'
+import request from 'src/service'
 export const getSongListDetail = (data: SongList.SongListDetail) => {
   return request({
     url: '/app/playlist/detail',

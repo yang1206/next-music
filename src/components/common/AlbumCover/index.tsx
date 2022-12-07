@@ -1,8 +1,8 @@
 import React, { memo } from 'react'
 import { useRouter } from 'next/router'
+import { AlbumWrapper } from './style'
 import { getSizeImage } from 'src/utils/format'
 import type { Recommend } from 'src/store/interface/recommend'
-import { AlbumWrapper } from './style'
 // 定义props类型
 interface Props {
   info: Recommend.NewAlbums

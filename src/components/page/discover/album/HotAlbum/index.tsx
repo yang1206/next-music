@@ -1,16 +1,16 @@
 import React, { memo, useEffect } from 'react'
 import { Skeleton } from 'antd'
+import { HotAlbumWrapper } from './style'
 import { useAppDispatch, useAppSelector } from 'src/hooks/useStore'
 import { getNewAlbums, selectNewAlbums } from 'src/store/slice/recommend'
 import AlbumCover from 'src/components/common/AlbumCover'
 import RcmHeader from 'src/components/common/RcmHeader'
-import { HotAlbumWrapper } from './style'
 const HotAlbum: React.FC = () => {
   const dispatch = useAppDispatch()
   const hotNewAlbums = useAppSelector(selectNewAlbums).data.slice(0, 10)
   useEffect(() => {
     dispatch(getNewAlbums())
-  }, [])
+  }, [dispatch])
   const CoverProps = {
     width: '150px',
     size: '130px',

@@ -1,11 +1,11 @@
 import React, { memo, useEffect, useRef } from 'react'
 import type { CarouselRef } from 'antd/lib/carousel'
 import { Carousel } from 'antd'
+import { AlbumWrapper } from './style'
 import RcmHeader from 'src/components/common/RcmHeader'
 import AlbumCover from 'src/components/common/AlbumCover'
 import { useAppDispatch, useAppSelector } from 'src/hooks/useStore'
 import { getNewAlbums, selectNewAlbums } from 'src/store/slice/recommend'
-import { AlbumWrapper } from './style'
 const NewAlbum: React.FC = () => {
   // 传递给头部卡片
   const headerProps = {
@@ -25,7 +25,7 @@ const NewAlbum: React.FC = () => {
   const dispatch = useAppDispatch()
   useEffect(() => {
     dispatch(getNewAlbums())
-  }, [])
+  }, [dispatch])
   // 从store取出banners
   const newAlbums = useAppSelector(selectNewAlbums)
   const pageRef = useRef<CarouselRef>(null)

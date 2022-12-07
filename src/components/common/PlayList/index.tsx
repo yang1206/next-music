@@ -1,7 +1,7 @@
 import React, { memo } from 'react'
-import { formatMinuteSecond } from 'src/utils/format'
 import PlayListItem from './components/PlayListItem'
 import { PlaylistWrapper } from './style'
+import { formatMinuteSecond } from 'src/utils/format'
 interface Props {
   playlist: Array<any>
   hideAl?: boolean

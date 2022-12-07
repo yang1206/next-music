@@ -1,10 +1,10 @@
 import React, { memo } from 'react'
 import Link from 'next/link'
 import { Collapse } from 'antd'
+import { SongInfoWrapper } from './style'
 import { selectLyric, selectSong } from 'src/store/slice/Player'
 import { useAppSelector } from 'src/hooks/useStore'
 import { getPlayUrl, getSizeImage } from 'src/utils/format'
-import { SongInfoWrapper } from './style'
 const SongInfo: React.FC = () => {
   const currentSong = useAppSelector(selectSong).data
   const LyricList = useAppSelector(selectLyric).data

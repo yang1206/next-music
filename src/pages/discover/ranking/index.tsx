@@ -22,7 +22,7 @@ const Ranking: React.FC = () => {
     let { id }: any = router.query
     id = id || currentTopListId
     dispatch(getTopListTitleInfo(id))
-  }, [currentTopListId, dispatch])
+  }, [currentTopListId, router.query, dispatch])
   return (
     <>
       <NavBar />

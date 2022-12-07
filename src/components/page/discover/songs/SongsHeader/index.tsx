@@ -1,8 +1,8 @@
 import React, { memo, useState } from 'react'
-import { useAppSelector } from 'src/hooks/useStore'
-import { selectCurrentCategory } from 'src/store/slice/SongList'
 import SongsCategory from '../SongsCategory'
 import { SongsHeaderWrapper } from './style'
+import { useAppSelector } from 'src/hooks/useStore'
+import { selectCurrentCategory } from 'src/store/slice/SongList'
 const SongsHeader: React.FC = () => {
   const [showCategory, setShowCategory] = useState(false)
   const currentCategory = useAppSelector(selectCurrentCategory).data

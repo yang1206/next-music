@@ -1,11 +1,11 @@
 import React, { memo, useState } from 'react'
 import { Skeleton } from 'antd'
+import { SongsListWrapper } from './style'
 import { useAppDispatch, useAppSelector } from 'src/hooks/useStore'
 import { getPlayList, selectCategorySongs } from 'src/store/slice/SongList'
 import SongsCover from 'src/components/common/SongsCover'
 import Pagination from 'src/components/common/Pagination'
 import type { Recommend } from 'src/store/interface/recommend'
-import { SongsListWrapper } from './style'
 const SongsList: React.FC = () => {
   const dispatch = useAppDispatch()
   const categorySongs = useAppSelector(selectCategorySongs).data

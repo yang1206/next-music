@@ -11,7 +11,7 @@ const PlayList: React.FC = () => {
   const dispatch = useAppDispatch()
   useEffect(() => {
     dispatch(getSongListDetailData(id))
-  }, [id, router])
+  }, [id, router, dispatch])
   return (
     <>
       <NavBar />

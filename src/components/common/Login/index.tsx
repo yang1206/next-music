@@ -1,11 +1,11 @@
 import React, { memo, useState } from 'react'
 import { Button, Modal, message } from 'antd'
 import { PhoneOutlined } from '@ant-design/icons'
-import { changeIsVisible, selectIsVisible } from 'src/store/slice/Login'
-import { useAppDispatch, useAppSelector } from 'src/hooks/useStore'
 import LoginIcon from './components/LoginIcon'
 import LoginForm from './components/LoginForm'
 import { LoginWrapper, PhoneLoginModal } from './style'
+import { useAppDispatch, useAppSelector } from 'src/hooks/useStore'
+import { changeIsVisible, selectIsVisible } from 'src/store/slice/Login'
 const Login: React.FC = () => {
   const dispatch = useAppDispatch()
   const isVisible = useAppSelector(selectIsVisible).data

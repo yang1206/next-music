@@ -5,10 +5,10 @@ import type { InputRef } from 'antd'
 import { Input } from 'antd'
 import { SearchOutlined } from '@ant-design/icons'
 import { useDebounceFn } from 'ahooks'
+import { SearchWrapper } from './style'
 import { useAppDispatch, useAppSelector } from 'src/hooks/useStore'
 import { changeFocusState, getSearchSong, selectFocusState, selectSearchSongList } from 'src/store/slice/Search'
 import { getSong } from 'src/store/slice/Player'
-import { SearchWrapper } from './style'
 const Search: React.FC = () => {
   const inputRef = useRef<InputRef>(null)
   const [recordActive, setRecordActive] = useState(-1)
@@ -82,7 +82,7 @@ const Search: React.FC = () => {
         dispatch(changeFocusState(false))
       }
     },
-    [recordActive, setRecordActive, searchSongList],
+    [recordActive, setRecordActive, searchSongList, dispatch],
   )
   // 点击当前item歌曲项
   const changeCurrentSong = (id: number, item: { name: string; ar: { name: string }[] }) => {

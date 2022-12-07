@@ -1,8 +1,8 @@
 import { createSlice } from '@reduxjs/toolkit'
 import { shallowEqual } from 'react-redux'
+import { getBanner, getNewAlbums, getPersonalized, getTopLists } from './action'
 import type { RootState } from 'src/store'
 import type { Recommend } from 'src/store/interface/recommend'
-import { getBanner, getNewAlbums, getPersonalized, getTopLists } from './action'
 interface InitialState {
   BannersData: Array<Recommend.Banners>
   PersonalizedData: Array<Recommend.perSonalizeder>

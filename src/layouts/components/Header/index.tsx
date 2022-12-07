@@ -1,10 +1,10 @@
 'use client'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
-import { headerLinks } from 'src/common/localData'
 import Search from './components/Search'
 import Avatar from './components/Avatar'
 import { HeaderWrapper } from './style'
+import { headerLinks } from 'src/common/localData'
 
 export default function Header() {
   const router = useRouter()

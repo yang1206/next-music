@@ -2,9 +2,9 @@ import React, { useCallback, useEffect, useRef, useState } from 'react'
 import { Carousel } from 'antd'
 import type { CarouselRef } from 'antd/lib/carousel'
 import { LeftOutlined, RightOutlined } from '@ant-design/icons'
+import { BannerWrapper } from './style'
 import { useAppDispatch, useAppSelector } from 'src/hooks/useStore'
 import { getBanner, selectBanners } from 'src/store/slice/recommend'
-import { BannerWrapper } from './style'
 
 const Banner: React.FC = () => {
   const [currentIndex, setCurrentIndex] = useState(0)
@@ -12,7 +12,7 @@ const Banner: React.FC = () => {
   useEffect(() => {
     // 请求数据
     dispatch(getBanner())
-  }, [])
+  }, [dispatch])
   // 从store取出banners
   const topBanner = useAppSelector(selectBanners)
   // 走马灯轮播之前回调

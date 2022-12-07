@@ -1,6 +1,8 @@
 import React, { createElement, memo, useCallback, useEffect, useState } from 'react'
 import { LikeFilled, LikeOutlined } from '@ant-design/icons'
 import { Avatar, Comment, Tooltip, message } from 'antd'
+import { SongCommentWrapper, WonderfulWrapper } from './style'
+import CommentsHeader from './components/CommentsHeader'
 import { changeCurrentTotal, getHotComment, selectHotComments, selectSong } from 'src/store/slice/Player'
 import { useAppDispatch, useAppSelector } from 'src/hooks/useStore'
 
@@ -9,8 +11,6 @@ import { getSongComment, sendLikeComment, sendSongComment } from 'src/api/song'
 import { getCount } from 'src/utils/format'
 import Pagination from 'src/components/common/Pagination'
 import CurComment from 'src/components/common/Comment'
-import { SongCommentWrapper, WonderfulWrapper } from './style'
-import CommentsHeader from './components/CommentsHeader'
 
 const SongComments: React.FC = () => {
   const [songComment, setSongComment] = useState([])

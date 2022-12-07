@@ -1,6 +1,6 @@
 import React, { Fragment } from 'react'
-import { footerLinks } from 'src/common/localData'
 import { AppFooterWrapper } from './style'
+import { footerLinks } from 'src/common/localData'
 export default function Footer() {
   return (
     <AppFooterWrapper>

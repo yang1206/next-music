@@ -1,11 +1,12 @@
 import React, { memo } from 'react'
+import Link from 'next/link'
+import { TopRankingWrapper } from './style'
 import { getSizeImage } from 'src/utils/format'
 import type { Recommend } from 'src/store/interface/recommend'
 import { getSong /* changeCurrentSong, changePlayList, changeCurrentIndex */, selectPlayList } from 'src/store/slice/Player'
 import { useAppDispatch, useAppSelector } from 'src/hooks/useStore'
 
 import { useAddPlaylist } from 'src/hooks/useAddPlaylist'
-import { TopRankingWrapper } from './style'
 interface Props {
   info: Recommend.topItem
 }
@@ -22,12 +23,12 @@ const TopRanking: React.FC<Props> = (props) => {
       <div className="header">
         <div className="image">
           <img src={getSizeImage(info?.coverImgUrl)} alt="" />
-          <a href="/discover/ranking" className="image_cover">
+          <Link href="/discover/ranking" className="image_cover">
             ranking
-          </a>
+          </Link>
         </div>
         <div className="info">
-          <a href="/discover/ranking">{info?.name}</a>
+          <Link href="/discover/ranking">{info?.name}</Link>
           <div>
             <button className="btn play sprite_02"></button>
             <button className="btn favor sprite_02"></button>
@@ -54,7 +55,7 @@ const TopRanking: React.FC<Props> = (props) => {
         })}
       </div>
       <div className="footer">
-        <a href="/discover/ranking">查看全部 &gt;</a>
+        <Link href="/discover/ranking">查看全部 &gt;</Link>
       </div>
     </TopRankingWrapper>
   )

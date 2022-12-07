@@ -1,10 +1,12 @@
 // @see: http://eslint.cn
 {
   "extends": [
-    "@antfu"
+    "@antfu",
+    "next/core-web-vitals"
   ],
   "rules": {
     "sort-imports": "off",
-    "@typescript-eslint/indent": "off"
+    "@typescript-eslint/indent": "off",
+    "@next/next/no-img-element": "off"
   }
 }

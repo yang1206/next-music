@@ -2,11 +2,12 @@
 import type { MenuProps } from 'antd'
 import { Dropdown } from 'antd'
 import { DownOutlined } from '@ant-design/icons'
+import Link from 'next/link'
+import { DropdownWrapper } from './style'
 import { clearLoginState } from 'src/utils/secretKey'
 import { useAppDispatch, useAppSelector } from 'src/hooks/useStore'
 import { changeIsVisible, selectIsVisible, selectLoginState, selectProfile } from 'src/store/slice/Login'
 import Login from 'src/components/common/Login'
-import { DropdownWrapper } from './style'
 export default function Avatar() {
   const dispatch = useAppDispatch()
   const isLogin = useAppSelector(selectLoginState).data
@@ -19,17 +20,17 @@ export default function Avatar() {
     {
       key: '1',
       label: (
-        <a rel="noopener noreferrer" href="/user">
+        <Link rel="noopener noreferrer" href="/user">
           {profile.nickname}
-        </a>
+        </Link>
       ),
     },
     {
       key: '2',
       label: (
-        <a rel="noopener noreferrer" href="/user">
+        <Link rel="noopener noreferrer" href="/user">
           我的主页
-        </a>
+        </Link>
       ),
     },
     {

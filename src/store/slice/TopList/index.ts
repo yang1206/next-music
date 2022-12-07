@@ -1,7 +1,7 @@
 import { createSlice } from '@reduxjs/toolkit'
 import { shallowEqual } from 'react-redux'
-import type { RootState } from 'src/store'
 import { getTopListInfo, getTopListItem, getTopListTitleInfo } from './action'
+import type { RootState } from 'src/store'
 interface InitialState {
   topListInfo: any[]
   currentIndex: number

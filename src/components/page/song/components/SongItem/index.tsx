@@ -1,11 +1,11 @@
 import React, { memo } from 'react'
 import Link from 'next/link'
 import { PlayCircleOutlined } from '@ant-design/icons'
+import { SongItemWrapper } from './style'
 import { useAddPlaylist } from 'src/hooks/useAddPlaylist'
 import { useAppDispatch, useAppSelector } from 'src/hooks/useStore'
 import { getSong, selectPlayList } from 'src/store/slice/Player'
 import { getSizeImage } from 'src/utils/format'
-import { SongItemWrapper } from './style'
 
 const SongItem: React.FC<any> = (props) => {
   // props/state

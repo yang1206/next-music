@@ -1,5 +1,8 @@
 import React, { memo } from 'react'
 import { ClearOutlined, CloseOutlined, HeartOutlined } from '@ant-design/icons'
+import PlayListItem from './components/PlayListItem'
+import LyricContent from './components/LyricContent'
+import { PanelWrapper } from './style'
 import { useAppDispatch, useAppSelector } from 'src/hooks/useStore'
 import {
   changePlayList,
@@ -10,9 +13,6 @@ import {
   selectSong,
 } from 'src/store/slice/Player'
 import { removeAllSong } from 'src/utils/storage'
-import PlayListItem from './components/PlayListItem'
-import LyricContent from './components/LyricContent'
-import { PanelWrapper } from './style'
 
 interface Props {
   showPanel: boolean

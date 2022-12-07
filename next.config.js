@@ -2,7 +2,16 @@
 const nextConfig = {
   reactStrictMode: true,
   swcMinify: true,
-  experimental: { appDir: true },
+  images: {
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'p1.music.126.net',
+        pathname: '/**',
+      },
+    ],
+  },
+  // experimental: { appDir: true },
 }
 
 module.exports = nextConfig

@@ -1,8 +1,8 @@
 import type { AxiosRequestConfig, AxiosResponse } from 'axios'
 import { message } from 'antd'
-import NProgress from 'src/config/nprogress'
 import Request from './request'
 import type { RequestConfig } from './request/types'
+import NProgress from 'src/config/nprogress'
 export interface IResponse<T> {
   [x: string]: any
   token: any
