@@ -146,13 +146,13 @@ export const singerCategories = [
       {
         name: '推荐歌手',
         type: 1,
-        url: '/api/discover/artist',
+        url: '/discover/artist',
         id: 0,
       },
       {
         name: '入驻歌手',
         type: 2,
-        url: '/api/discover/artist?cat=5001',
+        url: '/discover/artist?cat=5001',
         dataPath: '/artist/list?cat=5001',
       },
     ],
