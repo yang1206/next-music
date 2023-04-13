@@ -4,7 +4,7 @@ const { createProxyMiddleware } = require('http-proxy-middleware')
 
 const devProxy = {
   '/app': {
-    target: 'https://halocn.top', // 端口自己配置合适的
+    target: 'https://nextapi-git-master-yang1206.vercel.app', // 端口自己配置合适的
     pathRewrite: {
       '^/app': '/',
     },
