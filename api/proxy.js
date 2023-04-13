@@ -8,7 +8,7 @@ module.exports = (req, res) => {
   // xxxxx 替换为你跨域请求的服务器 如： http://baidu.com
   if (req.url.startsWith('/app')) {
     // 这里填目标地址
-    target = 'https://halocn.top/'
+    target = 'https://nextapi-git-master-yang1206.vercel.app/'
   }
   // 创建代理对象并转发请求
   createProxyMiddleware({
